@@ -1,0 +1,16 @@
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\visitorclean.Application.csproj.AssemblyReference.cache
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\visitorclean.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\visitorclean.Application.AssemblyInfoInputs.cache
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\visitorclean.Application.AssemblyInfo.cs
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\visitorclean.Application.csproj.CoreCompileInputs.cache
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\visitorclean.Application.sourcelink.json
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\bin\Debug\net10.0\visitorclean.Application.deps.json
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\bin\Debug\net10.0\visitorclean.Application.dll
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\bin\Debug\net10.0\visitorclean.Application.pdb
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\bin\Debug\net10.0\visitorclean.Domain.dll
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\bin\Debug\net10.0\visitorclean.Domain.pdb
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\visitorc.6CCDA8B4.Up2Date
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\visitorclean.Application.dll
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\refint\visitorclean.Application.dll
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\visitorclean.Application.pdb
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Application\obj\Debug\net10.0\ref\visitorclean.Application.dll
