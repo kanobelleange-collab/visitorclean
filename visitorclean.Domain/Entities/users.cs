@@ -11,6 +11,7 @@ public class Users
     public string PasswordHash{get;set;}
     public int RoleId{get;set;}
     public string? RoleNom{get;set;}
+    public Roles Role{get;set;}
 
     public Users(){}
     public Users(string username,string email,string passwordhash,int roleId)

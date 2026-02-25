@@ -1,5 +1,5 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.users.Interface;
 using Dapper;
 using System.Data;
 using System.ComponentModel.Design;
@@ -7,7 +7,7 @@ using Microsoft.VisualBasic;
 using visitorclean.Infrastructure.Dbcontext;
 using visitorclean.Application.Service;
 
-
+namespace visitorclean.Infrastructure.Repository;
 
 
 public class UserRepository : IUserRepository
@@ -19,7 +19,7 @@ public class UserRepository : IUserRepository
         _db = db;
     }
 
-    public async Task<int> CreateAsync(User user)
+    public async Task<int> CreateAsync(Users user)
     { 
          using  var Connection = _db.CreateConnection();
         var sql = @"
@@ -29,8 +29,16 @@ public class UserRepository : IUserRepository
 
         return await Connection.ExecuteScalarAsync<int>(sql, user);
     }
+     public async Task<User?> GetByEmailAsync(string email)
+    {
+        var sql = "SELECT * FROM Users WHERE Email = @Email";
 
-    public async Task UpdateAsync(User user)
+        return await _connection.QueryFirstOrDefaultAsync<User>(
+            sql,
+            new { Email = email });
+    }
+
+    public async Task UpdateAsync(Users user)
     {
          using  var Connection = _db.CreateConnection();
         var sql = @"
@@ -50,14 +58,14 @@ public class UserRepository : IUserRepository
         await Connection.ExecuteAsync(sql, new { Id = id });
     }
 
-    public async Task<User?> GetByIdAsync(int id)
+    public async Task<Users?> GetByIdAsync(int id)
     {
          using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Users WHERE Id = @Id";
         return await Connection.QueryFirstOrDefaultAsync<User>(sql, new { Id = id });
     }
 
-    public async Task<IEnumerable<User>> GetAllAsync()
+    public async Task<IEnumerable<Users>> GetAllAsync()
     {
          using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Users WHERE IsDeleted = 0";

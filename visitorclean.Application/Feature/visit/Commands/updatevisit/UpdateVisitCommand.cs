@@ -1,8 +1,8 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visit.Dto;
 using AutoMapper;
 using MediatR;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visit.Interface;
 using visitorclean.Domain.Enums;
 
 namespace visitorclean.Application.Feature.visit.Commands.updatevisit;

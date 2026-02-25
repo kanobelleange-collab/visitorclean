@@ -11,9 +11,12 @@ using System.Runtime.Versioning;
 using System.Runtime.ExceptionServices;
 using visitorclean.Infrastructure.Repository;
 using AutoMapper;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.Visit.Dto;
 
 namespace visitorclean.Api.controller;
+
+
+[Autorize]
 [ApiController]
 
 [Route("Api/Visitor")]

@@ -8,7 +8,7 @@ using Microsoft.VisualBasic;
 using visitorclean.Infrastructure.Dbcontext;
 using visitorclean.Application.Service;
 using visitorclean.Application.Feature.visitor.Queries.Getvisitorwithvisitdto;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.visitor.Dto;
 
 
 

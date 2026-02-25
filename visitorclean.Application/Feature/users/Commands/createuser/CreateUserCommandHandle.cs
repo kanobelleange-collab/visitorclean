@@ -1,27 +1,39 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.Interface;
 using System;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.users.Dto;
 using visitorclean.Application.Feature.users.Commands.createuser;
+using visitorclean.Application.Feature.users.Interface;
+using System.Security;
 
 
 namespace visitorclean.Application.Feature.users.Commands.createuser;
 
 public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , UserDto>
 {
-    private readonly IVisitRepository _Repo;
+    private readonly IUserRepository _Repo;
     private readonly IMapper _mapper;
+    private readonly IPermissionService _permissionService;
 
-    public CreateUserCommandHandler(IVisitRepository repo ,IMapper mapper)
+    public CreateUserCommandHandler(IUserRepository repo ,IMapper mapper,IPermissionService permissionService)
     {
         _Repo=repo;
         _mapper=mapper;
+        _permissionService=permissionService;
     }
-    public async Task <UserDto>Handle(CreateUserCommand request ,CancellationToken cancellationToken)
+
+    public async Task<userDto> Handle(CreateUserCommand request,CancelllationToken cancelllationToken)
     {
+        var hasPermission = await _permissionService
+            .HasPermission(request.UserId, Permissions.CreateUser);
+
+        if (!hasPermission)
+            throw new UnauthorizedAccessException();
+    
+
+   
          // 1️⃣ Mapper DTO → Entity
         var user = _mapper.Map<Users>(request);
 
@@ -36,7 +48,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , User
          var id = await _Repo.AddAsync(user);
          user.Id = id;
         // 4️⃣ Mapper Entity → DTO
-         return _mapper.Map<userDto>(user);
+         return _mapper.Map<UserDto>(user);
        
 
     }

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.Dashboard.Dto;
 using visitorclean.Domain.Entities;
 using System.Threading .Tasks;
 using System.Runtime.Versioning;
@@ -22,7 +22,7 @@ public class DashboardController : ControllerBase
         _mapper=mapper;
 
     }
-    [Authorize]
+    [Authorize(Roles ="Admin,Agent")]
     [HttpGet("dashboard")]
     public async Task<IActionResult> GetDashboard()
     {

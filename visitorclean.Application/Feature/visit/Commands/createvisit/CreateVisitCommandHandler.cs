@@ -1,10 +1,10 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visit.Interface;
 using System;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visit.Dto;
 using visitorclean.Application.Feature.visit.Commands.createvisit;
 
 
@@ -14,14 +14,24 @@ public class CreateVisitCommandHandler : IRequestHandler<CreateVisitCommand , Vi
 {
     private readonly IVisitRepository _Repo;
     private readonly IMapper _mapper;
+    private readonly IPermissionService _permissionService;
 
-    public CreateVisitCommandHandler(IVisitRepository repo ,IMapper mapper)
+    public CreateVisitCommandHandler(IVisitRepository repo ,IMapper mapper,IPermissionService permissionService)
     {
         _Repo=repo;
         _mapper=mapper;
+        _permissionService=permissionService;
     }
+
     public async Task <VisitDto>Handle(CreateVisitCommand request ,CancellationToken cancellationToken)
     {
+        var hasPermission = await _permissionService
+            .HasPermission(request.UserId, Permissions.CreateVisit);
+
+        if (!hasPermission)
+            throw new UnauthorizedAccessException();
+    
+   
          // 1️⃣ Mapper DTO → Entity
         var visit = _mapper.Map<Visit>(request);
 

@@ -2,7 +2,7 @@ using visitorclean.Domain.Entities;
 using MediatR;
 using System;
 using System.Net;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visitor.Interface;
 
 namespace visitorclean.Application.Feature.visitor.Commands.deletevisitor;
 public record DeleteVisitorCommand: IRequest<bool>

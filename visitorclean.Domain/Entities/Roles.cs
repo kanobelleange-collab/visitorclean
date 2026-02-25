@@ -1,8 +1,8 @@
 using System;
 
-namespace visitorclean.Doamin.Entities;
+namespace visitorclean.Domain.Entities;
 
-public record Roles
+public class Roles
 {
     public int Id{get;set;}
     public string Nom{get;set;}

@@ -4,7 +4,7 @@ using System.Runtime.Versioning;
 using System.Runtime.ExceptionServices;
 using visitorclean.Infrastructure.Repository;
 using AutoMapper;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visitor.Dto;
 using visitorclean.Application.Feature.visitor.Queries.Getvisitorwithvisitdto;
 using visitorclean.Application.Feature.visitor.Queries.Getvisitorbyperiod;
 using MediatR;
@@ -13,6 +13,7 @@ using System.Net.Cache;
 namespace visitorclean.Api.controller;
 
 
+[Autorize]
 [ApiController]
 
 

@@ -6,10 +6,11 @@ using visitorclean.Application.Feature.visit.Commands.updatevisit;
 using visitorclean.Application.Feature.visit.Queries.GetByidvisit;
 using visitorclean.Application.Feature.visit.Queries.Getallvisit;
 using visitorclean.Application.Feature.visit.Commands.CreateVisitDto;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.Dto;
 
 namespace visitorclean.Api.controller;
 
+[Autorize]
 [ApiController]
 [Route("api/[controller]")]
 public class VisitController : ControllerBase

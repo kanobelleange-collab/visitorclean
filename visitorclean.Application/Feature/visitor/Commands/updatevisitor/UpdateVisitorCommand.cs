@@ -1,8 +1,8 @@
 using MediatR;
 using visitorclean.Domain.Entities;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visitor.Interface;
 using System.Net;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visitor.Dto;
 
 namespace visitorclean.Application.Feature.visitor.Commands.updatevisitor;
 

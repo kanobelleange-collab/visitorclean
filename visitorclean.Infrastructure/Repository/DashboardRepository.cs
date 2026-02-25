@@ -1,5 +1,5 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Dashboard.Interface;
 using Dapper;
 using System.Data;
 using System.ComponentModel.Design;
@@ -7,6 +7,7 @@ using Microsoft.VisualBasic;
 using visitorclean.Infrastructure.Dbcontext;
 using visitorclean.Application.Service;
 using AutoMapper;
+using visitorclean.Application.Feature.Dashboard.Dto;
 
 
 namespace visitorclean.Infrastructure.Repository;

@@ -3,12 +3,12 @@ using visitorclean.Application.Feature.Dashboard.Queries;
 using MediatR;
 using visitorclean.Domain.Entities;
 using visitorclean.Application.DTOs;
+using visitorclean.Application.Interface;
 
 
-namespace visitorclean. Application.Feature.Dashboard.Queries;
+namespace visitorclean.Application.Feature.Dashboard.Queries;
 
-public class GetDashboardQueryHandler 
-    : IRequestHandler<GetDashboardQuery, DashboardDto>
+public class GetDashboardQueryHandler : IRequestHandler<GetDashboardQuery, DashboardDto>
 {
     private readonly IDashboardRepository _repo;
     private readonly IUserRepository _userRepo;
@@ -22,19 +22,22 @@ public class GetDashboardQueryHandler
     }
 
     public async Task<DashboardDto> Handle(
-        GetDashboardQuery request,
-        CancellationToken cancellationToken)
+    GetDashboardQuery request,
+    CancellationToken cancellationToken)
     {
-        var user = await _userRepo.GetByIdAsync(request.UserId);
+    var user = await _userRepo.GetByIdAsync(request.UserId);
 
-        if (user.Role.Name == "Admin")
-        {
-            return await _repo.GetAdminDashboardAsync();
-        }
-        else
-        {
-            return await _repo.GetAgentDashboardAsync(user.Id);
-        }
+    if (user == null)
+        throw new Exception("User not found");
+
+    if (user.RoleId == 1)
+    {
+        return await _repo.GetAdminDashboardAsync();
+    }
+    else
+    {
+        return await _repo.GetAgentDashboardAsync(user.Id);
+    }
     }
 }
 

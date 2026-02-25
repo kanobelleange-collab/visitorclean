@@ -1,10 +1,10 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visit.Dto;
 using MediatR;
 using AutoMapper;
 using visitorclean.Application.Feature.visit.Commands.updatevisit;
 using System.Net;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visit.Interface;
 
 namespace visitorclean.Application.Feature.visit.Commands.updatevisit;
 
@@ -12,14 +12,23 @@ public class UpdateVisitCommandHandler:IRequestHandler<UpdateVisitCommand, Visit
 {
     private readonly IVisitRepository _repo;
     private readonly IMapper _mapper;
+    private readonly IPermissionService _permissionService;
 
-    public UpdateVisitCommandHandler(IVisitRepository  repo,IMapper mapper)
+    public UpdateVisitCommandHandler(IVisitRepository  repo,IMapper mapper,IPermissionService permissionService)
     {
         _repo=repo;
         _mapper=mapper;
+        _permissionService=permissionService;
     }
-    public async Task<VisitDto> Handle(UpdateVisitCommand request, CancellationToken cancellationToken)
+    public async Task<VisitDto> Handle(UpdateVisitCommand request ,CancellationToken cancellationToken)
     {
+        var hasPermission = await _permissionService
+            .HasPermission(request.UserId, Permissions.UpdateVisit);
+
+        if (!hasPermission)
+            throw new UnauthorizedAccessException();
+    
+    
         var visit= await _repo.GetByIdAsync(request.Id);
          if (visit == null)
         return null; // signal qu’on ne trouve pas

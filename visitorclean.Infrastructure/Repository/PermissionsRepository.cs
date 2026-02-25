@@ -1,12 +1,11 @@
-
-using System;
-using MediatR;
+using Dapper;
+using visitorclean.Application.Service.Interface;
 using visitorclean.Domain.Entities;
-using visitorclean .Application.Feature.Permissions;
-using System.Threading.Tasks;
+using System.Data;
+using visitorclean.Infrastructure.Dbcontext;
 
 
-
+namespace visitorclean.Infrastructure.Repository;
 public class PermissionRepository : IPermissionRepository
 {
     private readonly DbContext _db;
@@ -16,17 +15,30 @@ public class PermissionRepository : IPermissionRepository
         _db = db;
     }
 
-    public async Task<IEnumerable<string>> GetPermissionsByUserIdAsync(int userId)
-    {
-         using  var Connection = _db.CreateConnection();
-        var sql = @"
-            SELECT p.Nom
-            FROM Users u
-            INNER JOIN Roles r ON u.RoleId = r.Id
-            INNER JOIN RolePermissions rp ON r.Id = rp.RoleId
-            INNER JOIN Permissions p ON rp.PermissionId = p.Id
-            WHERE u.Id = @UserId";
 
-        return await Connection.QueryAsync<string>(sql, new { UserId = userId });
+    public async Task<List<Permissions>> GetAllAsync()
+    {
+          using  var Connection = _db.CreateConnection();
+        var sql = "SELECT * FROM Permissions";
+
+        var result = await _db.QueryAsync<Permissions>(sql);
+
+        return result.ToList();
+    }
+
+    public async Task<List<string>> GetPermissionsByUserId(int userId)
+    {
+          using  var Connection = _db.CreateConnection();
+        var sql = @"
+            SELECT p.Name
+            FROM Users u
+            INNER JOIN RolePermissions rp ON u.RoleId = rp.RoleId
+            INNER JOIN Permissions p ON rp.PermissionId = p.Id
+            WHERE u.Id = @UserId
+        ";
+
+        var result = await _db.QueryAsync<string>(sql, new { UserId = userId });
+
+        return result.ToList();
     }
 }

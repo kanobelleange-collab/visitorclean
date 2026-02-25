@@ -1,13 +1,14 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.Interface;
+using visitorclean.Application.role.Interface;
 using Dapper;
 using System.Data;
 using System.ComponentModel.Design;
 using Microsoft.VisualBasic;
 using visitorclean.Infrastructure.Dbcontext;
 using visitorclean.Application.Service;
+using visitorclean.Application.role.Dto;
 
-
+namespace visitorclean.Infrastructure.Repository;
 public class RoleRepository : IRoleRepository
 {
     private readonly DbContext _db;
@@ -17,7 +18,7 @@ public class RoleRepository : IRoleRepository
         _db = db;
     }
 
-    public async Task<RoleDto> CreateAsync(Role role)
+    public async Task<RoleDto> CreateAsync(Roles role)
     {
          using  var Connection = _db.CreateConnection();
         var sql = @"INSERT INTO Roles (Nom)
@@ -27,7 +28,7 @@ public class RoleRepository : IRoleRepository
         return await Connection.ExecuteScalarAsync<int>(sql, role);
     }
 
-    public async Task UpdateAsync(Role role)
+    public async Task UpdateAsync(Roles role)
     {
          using  var Connection = _db.CreateConnection();
         var sql = @"UPDATE Roles
@@ -44,14 +45,14 @@ public class RoleRepository : IRoleRepository
         await Connection.ExecuteAsync(sql, new { Id = id });
     }
 
-    public async Task<Role?> GetByIdAsync(int id)
+    public async Task<Roles?> GetByIdAsync(int id)
     {
          using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Roles WHERE Id = @Id";
         return await Connection.QueryFirstOrDefaultAsync<Role>(sql, new { Id = id });
     }
 
-    public async Task<IEnumerable<Role>> GetAllAsync()
+    public async Task<IEnumerable<Roles>> GetAllAsync()
     {
          using  var Connection = _db.CreateConnection();
         return await Connection.QueryAsync<Role>("SELECT * FROM Roles");

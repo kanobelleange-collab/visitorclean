@@ -3,17 +3,17 @@ using System;
 using System.Threading.Tasks;
 using MediatR;
 using visitorclean.Domain.Enums;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.users.Dto;
 
 namespace visitorclean.Application.Feature.users.Commands.createuser;
 
 public record CreateUserCommand: IRequest<UserDto>
 {
    
-    public string Username {get;set;}
-     public  string Email{get;set;}
-    public string PasswordHash{get; set;}
-    public int RoleId{get;set;}
+    public required string Username {get;set;}
+     public  required string Email{get;set;}
+    public required  string PasswordHash{get; set;}
+    public  required  int RoleId{get;set;}
 
 
 

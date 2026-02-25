@@ -1,14 +1,16 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visit.Dto;
 using visitorclean.Domain.Entities;
 using System.Threading .Tasks;
 using System.Runtime.Versioning;
+using visitorclean.Application.Feature.visit.Interface;
 
 
 namespace visitorclean.Api.controller;
 
+[Autorize]
 [ApiController]
 
 [Route("Api/Roles")]

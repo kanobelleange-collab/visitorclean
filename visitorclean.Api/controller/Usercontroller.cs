@@ -1,7 +1,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.users.Dto;
 using visitorclean.Domain.Entities;
 using System.Threading .Tasks;
 using System.Runtime.Versioning;
@@ -9,6 +9,7 @@ using System.Runtime.Versioning;
 
 
 
+[Autorize]
 [ApiController]
 [Route("api/[controller]")]
 public class UserController : ControllerBase
@@ -21,7 +22,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddAsync([FromBody]CreateUserCommand command)
+    public async Task<IActionResult> CreatedAsync([FromBody]CreateUserCommand command)
     {
         var id = await _mediator.Send(command);
         return Ok(id);

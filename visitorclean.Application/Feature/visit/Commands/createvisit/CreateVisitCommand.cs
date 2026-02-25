@@ -3,7 +3,7 @@ using System;
 using System.Threading.Tasks;
 using MediatR;
 using visitorclean.Domain.Enums;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visit.Dto;
 
 namespace visitorclean.Application.Feature.visit.Commands.createvisit;
 

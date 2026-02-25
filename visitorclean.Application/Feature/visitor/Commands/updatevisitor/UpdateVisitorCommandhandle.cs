@@ -1,10 +1,10 @@
 using MediatR;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visitor.Interface;
 using System.Threading.Tasks;
 using visitorclean.Domain.Entities;
 using System.Net;
 using visitorclean.Application.Feature.visitor.Commands;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visitor.Dto;
 using AutoMapper;
 
 namespace visitorclean.Application.Feature.visitor.Commands.updatevisitor;
@@ -12,14 +12,24 @@ public class UpdateVisitorCommandHandler:IRequestHandler<UpdateVisitorCommand, V
 {
     private readonly IVisitorRepository _repo;
     private readonly IMapper _mapper;
+    private readonly IPermissionService _permissionService;
 
-    public UpdateVisitorCommandHandler(IVisitorRepository repo,IMapper mapper)
+    public UpdateVisitorCommandHandler(IVisitorRepository repo,IMapper mapper,IPermissionService permissionService)
     {
         _repo=repo;
         _mapper=mapper;
+        _permissionService=permissionService;
     }
-  public async Task<VisitorDto> Handle(UpdateVisitorCommand request, CancellationToken cancellationToken)
+
+    public async Task<VisitorDto> Handle(UpdateVisitorCommand request ,CancellationToken cancellationToken)
     {
+        var hasPermission = await _permissionService
+            .HasPermission(request.UserId, Permissions.UpdateVisitor);
+
+        if (!hasPermission)
+            throw new UnauthorizedAccessException();
+    
+  
         var visitor = await _repo.GetByIdAsync(request.Id);
 
         if (visitor is null)
