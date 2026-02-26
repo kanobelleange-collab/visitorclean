@@ -1,23 +1,23 @@
 using MediatR;
-using AutoMapper;
-using visitorclean.Application.Feature.Visite.Interfaces;
 using visitorclean.Application.Feature.RolePermission.Dtos;
-using visitorclean.Application.Features.RolePermission.Interfaces;
-using visitorclean.Application.Feature.RolePermission.Queries.GetByIdRolePermission.GetByIdRolePermissionQuery;
+using visitorclean.Application.Feature.RolePermission.Interfaces;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace visitorclean.Application.Feature.Visite.Querries.GetRolePermission.GetByIdRolePermissionHandler;
-public class GetByIdRolePermissionHandler:IRequestHandler<GetByIdRolePermissionQuery, RolePermissionDto>
+namespace visitorclean.Application.Feature.RolePermission.Queries.GetByIdRolePermission
 {
-    private readonly IRolePermissionRepository _repository;
-    private readonly IMapper _mapper;
-    public GetByIdRolePermissionHandler(IRolePermissionRepository repository, IMapper mapper)
+    public class GetByIdRolePermissionHandler : IRequestHandler<GetByIdRolePermissionQuery, RolePermissionDto?>
     {
-        _repository=repository;
-        _mapper=mapper;
+        private readonly IRolePermissionRepository _repository;
+
+        public GetByIdRolePermissionHandler(IRolePermissionRepository repository)
+        {
+            _repository = repository;
+        }
+
+        public async Task<RolePermissionDto?> Handle(GetByIdRolePermissionQuery request, CancellationToken cancellationToken)
+        {
+            return await _repository.GetByIdAsync(request.RoleId);
+        }
     }
-    public async Task<RolePermissionDto>Handle(GetByIdRolePermissionQuery request, CancellationToken cancellationToken)
-    {
-       var role_permission=await _repository.GetByIdAsync(request.RoleId);
-       return _mapper.Map<RolePermissionDto>(role_permission);
-    }
-    }
+}

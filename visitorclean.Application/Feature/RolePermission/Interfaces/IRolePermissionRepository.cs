@@ -1,7 +1,14 @@
-using CleanVisitor.Application.Features.RolePermission.Dtos;
-using CleanVisitor.Core.Entities.RolesPermissions;
-namespace CleanVisitor.Application.Features.RolePermission.Interfaces;
-public interface IRolePermissionRepository
+using visitorclean.Application.Feature.RolePermission.Dtos;
+using visitorclean.Domain.Entities;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace visitorclean.Application.Feature.RolePermission.Interfaces
 {
-    Task<RolePermissionDto?>AddAsync(RolePermissions role_permission);
+    public interface IRolePermissionRepository
+    {
+        Task<RolePermissionDto?> AddAsync(RolesPermissions rolePermission);
+        Task<List<RolePermissionDto>> GetAllAsync();
+        Task<RolePermissionDto?> GetByIdAsync(int RoleId);
+    }
 }

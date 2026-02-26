@@ -1,5 +1,9 @@
-namespace CleanVisitor.Application.Features.RolePermission.Dtos;
-public class RolePermissionDto
+namespace visitorclean.Application.Feature.RolePermission.Dtos
 {
-    public string ?Nom{get;set;}
+    public class RolePermissionDto
+    {
+        public int Id { get; set; }
+        public int RoleId { get; set; }
+        public int PermissionId { get; set; }
+    }
 }

@@ -1,7 +1,9 @@
 using MediatR;
-using CleanVisitor.Application.Features.RolePermission.Dtos;
-using CleanVisitor.Core.Enum.UserRole;
-namespace CleanVisitor.Application.Features.RolePermission.Command.CreateRolePermission;
+using AutoMapper;
+using visitorclean.Domain.Entities;
+using visitorclean.Application.Feature.RolePermission.Dtos;
+using visitorclean.Application.Feature.RolePermission.Interfaces;
+namespace visitorclean.Application.Feature.RolePermission.Command.CreateRolePermission;
 public record CreateRolePermissionCommand : IRequest<RolePermissionDto>
 {
     public int RoleId{get;set;}
