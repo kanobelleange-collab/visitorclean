@@ -1,7 +1,7 @@
 using MediatR;
 using visitorclean.Application.Feature.visitor.Commands;
 using System.Threading.Tasks;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visitor.Interface;
 using visitorclean.Application.Feature.visitor.Queries.GetByidvisitor;
 using visitorclean.Domain.Entities;
 

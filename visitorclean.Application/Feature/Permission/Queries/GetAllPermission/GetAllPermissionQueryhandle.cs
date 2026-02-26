@@ -1,5 +1,5 @@
 using MediatR;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.Permission.Interface;
 using visitorclean.Domain.Entities;
 
 public class GetAllPermissionsQueryHandler 

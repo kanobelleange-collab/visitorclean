@@ -2,7 +2,7 @@ using System;
 using MediatR;
 using visitorclean.Domain.Entities;
 using visitorclean.Application.Feature.users.Queries.GetByiduser;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.users.Interface;
 
 namespace visitorclean.Application.Feature.users.Queries.GetByiduser;
 

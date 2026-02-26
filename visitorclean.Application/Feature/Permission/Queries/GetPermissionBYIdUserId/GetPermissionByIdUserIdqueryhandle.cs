@@ -1,6 +1,7 @@
 using MediatR;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.Permission.Interface;
 
+namespace visitorclean.Application.Feature.Permission.Queries.GetPermissionByIdUserId;
 public class GetPermissionsByUserIdQueryHandler 
     : IRequestHandler<GetPermissionsByUserIdQuery, List<string>>
 {

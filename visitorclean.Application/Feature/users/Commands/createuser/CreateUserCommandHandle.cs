@@ -8,6 +8,8 @@ using visitorclean.Application.Feature.users.Commands.createuser;
 using visitorclean.Application.Feature.Permission.Interface;
 using visitorclean.Application.Feature.users.Interface;
 using System.Security;
+using visitorclean.Application.Service.Interface;
+using visitorclean.Application.Common;
 
 
 namespace visitorclean.Application.Feature.users.Commands.createuser;
@@ -24,11 +26,12 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , User
         _mapper=mapper;
         _permissionService=permissionService;
     }
+    public async Task<UserDto> Handle(CreateUserCommand request,CancelllationToken cancelllationToken);
+    public async Task<UserDto> Handle(CreateUserCommand request ,CancellationToken cancellationToken)
 
-    public async Task<UserDto> Handle(CreateUserCommand request,CancelllationToken cancelllationToken)
     {
         var hasPermission = await _permissionService
-            .HasPermission(request.UserId, Permissions.CreateUser);
+            .HasPermission(request.UserId, AppPermission.CreateUser);
 
         if (!hasPermission)
             throw new UnauthorizedAccessException();

@@ -3,6 +3,7 @@ using visitorclean.Application.Feature.Authentification.Interface;
 using visitorclean.Domain.Entities;
 using System.Security.Cryptography;
 using System.Text;
+using visitorclean.Application.Feature.users.Interface;
 
 namespace visitorclean.Application.Feature.Authentification.Commands.Register;
 
@@ -30,7 +31,7 @@ public class RegisterCommandHandler
         var hashedPassword = HashPassword(request.Password);
 
         // 3️⃣ Créer l'entité User
-        var user = new User(
+        var user = new Users(
             request.Username,
             request.Email,
             hashedPassword,

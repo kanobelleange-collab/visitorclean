@@ -1,10 +1,10 @@
 using MediatR;
 using AutoMapper;
-using CleanVisitor.Application.Features.Visite.Interfaces;
-using CleanVisitor.Core.Entities.Visits;
-using CleanVisitor.Application.Features.Visite.Dtos;
-using CleanVisitor.Application.Features.Visite.Querries.GetByDateVisit;
-namespace CleanVisitor.Application.Features.Visite.Querries.GetByDateVisit.GetByDateVisitHandler;
+using visitorclean.Application.Feature.Visite.Interfaces;
+using visitorclean.Domain.Entities;
+using visitorclean.Application.Feature.Visite.Dtos;
+using visitorclean.Application.Feature.Visite.Querries.GetByDateVisit;
+namespace visitorclean.Application.Feature.Visite.Querries.GetByDateVisit.GetByDateVisitHandler;
 public class GetByDateVisitHandler:IRequestHandler<GetByDateVisitQuery, VisitDto>
 {
     private IVisitRepository _repository;

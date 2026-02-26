@@ -1,72 +1,70 @@
-using MediatR;
+using System.Data;
 using Microsoft.AspNetCore.Mvc;
-using AutoMapper;
-using visitorclean.Application.Feature.visit.Commands.createvisit;
-using visitorclean.Application.Feature.visit.Commands.updatevisit;
-using visitorclean.Application.Feature.visit.Queries.GetByidvisit;
-using visitorclean.Application.Feature.visit.Queries.Getallvisit;
-using visitorclean.Application.Feature.visit.Commands.CreateVisitDto;
-using visitorclean.Application.Feature.Dto;
+using MediatR;
+using visitorclean.Infrastructure.Dbcontext;
+using visitorclean.Application.Feature.Visite.Commande.CreateVisit;
+using visitorclean.Application.Feature.Visite.Commande.DeleteVisit;
+using visitorclean.Application.Feature.Visite.Commande.UpdateVisit.UpdateVisitCommand;
+using visitorclean.Application.Feature.Visite.Querries.GetAllVisit;
+using visitorclean.Application.Feature.Visite.Querries.GetByDateVisit;
+using visitorclean.Application.Feature.Visite.Querries.GetVisitById;
+using visitorclean.Application.Feature.Visite.Querries.GetVisitCountByServiceStatut.GetVisitCountByServiceStatutQuery;
 
-namespace visitorclean.Api.controller;
-
-[Autorize]
 [ApiController]
 [Route("api/[controller]")]
 public class VisitController : ControllerBase
 {
     private readonly IMediator _mediator;
-    private readonly IMapper _mapper;
-
-    public VisitController(IMediator mediator, IMapper mapper)
+    public VisitController(IMediator mediator)
     {
-        _mediator = mediator;
-        _mapper = mapper;
+        _mediator=mediator;
     }
-
     [HttpPost]
-    public async Task<IActionResult> AddAsync([FromBody] CreateVisitDto dto)
+    public async Task<IActionResult>Create([FromBody] CreateVisitCommand request)
     {
-        var command = _mapper.Map<CreateVisitCommand>(dto);
-
-        var response = await _mediator.Send(command);
-
-        return Ok(response);
-    }
-
-    [HttpPut("{id}")]
-
-
-public async Task<IActionResult> Update(int id, [FromBody] UpdateVisitDto dto)
-{
-    var command = _mapper.Map<UpdateVisitCommand>(dto);
-    
-
-    var response = await _mediator.Send(command);
-
-    if (response == null)
-        return NotFound($"Visit with id {id} not found");
-
-    return Ok(response);
-}
-    
-
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetByIdAsync(int id)
-    {
-        var visit = await _mediator.Send(new GetByIdVisitquery(id));
-
-        if (visit == null)
-            return NotFound($"Visit avec l'id {id} introuvable");
-
+        var visit= await _mediator.Send(request);
         return Ok(visit);
     }
-
-    [HttpGet]
-    public async Task<IActionResult> GetAllAsync()
+    [HttpGet("{id:int}")]
+    public async Task<IActionResult>GetByIdAsync(int id)
     {
-        var visits = await _mediator.Send(new GetAllVisitQuery());
-
-        return Ok(visits);
+        var visit=await _mediator.Send(new GetVisitByIdQuery(id));
+        if (visit==null) return NotFound();
+        return Ok(visit);
     }
-}
+    [HttpGet("{Date:datetime}")]
+    public async Task<IActionResult>GetByDateAsync(DateTime Date)
+    {
+        var visit= await _mediator.Send(new GetByDateVisitQuery(Date));
+            return Ok(visit);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync()
+    {
+        var visit=await _mediator.Send(new GetAllVisitQuery());
+        return Ok(visit);
+    }
+    [HttpDelete]
+    public async Task<IActionResult>DeleteAsync(int id)
+    {
+        var visit=await _mediator.Send(new DeleteVisitCommand(id));
+        if(visit==null) return NotFound("Aucune Visit Trouver");
+        return Ok(visit);
+    }
+    [HttpPut("{id}")]
+    public async Task<IActionResult>UpdateAsync(int id, [FromBody] UpdateVisitCommand request)
+    {
+    if (id != request.Id)
+        {
+            return BadRequest("L'ID Que Vous Demander Est Introuvable");
+        }
+        await _mediator.Send(request);
+        return NoContent();
+    }
+     [HttpGet("count_by_service")]
+    public async Task<IActionResult> GetVisitCountByService()
+    {
+        var service=await _mediator.Send(new GetVisitCountByServiceStatutQuery());
+        return Ok(service);
+    }
+    }

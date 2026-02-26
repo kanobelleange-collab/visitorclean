@@ -4,6 +4,7 @@ using visitorclean.Application.Feature.Authentification.Interface;
 using visitorclean.Application.Feature.Permission.Interface;
 using visitorclean.Application.Feature.users.Interface;
 using System.Security.Cryptography;
+using visitorclean.Domain.Entities.user;
 using System.Text;
 
 
@@ -36,9 +37,9 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, AuthResponseDto
             throw new UnauthorizedAccessException("Email incorrect");
 
         // 🔐 2. Vérifier mot de passe
-        var hashedPassword = HashPassword(request.Password);
+        var hashedPassword = HashPassword(request.PasswordHash);
 
-        if (user.Password != hashedPassword)
+        if (user.PasswordHash != hashedPassword)
             throw new UnauthorizedAccessException("Mot de passe incorrect");
 
         // 🔑 3. Récupérer permissions
@@ -53,7 +54,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, AuthResponseDto
         {
             Token = token,
             Username = user.Username,
-            Role = user.RoleName,
+            Role = user.RoleNom,
             Permissions = permissions
         };
     }

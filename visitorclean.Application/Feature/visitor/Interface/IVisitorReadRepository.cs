@@ -2,6 +2,7 @@ using System;
 using visitorclean.Domain.Entities;
 using System.Threading.Tasks;
 using visitorclean.Application.Feature.visitor.Queries.Getvisitorwithvisitdto;
+using visitorclean.Application.Feature.visitor.Dto;
 
 
 namespace visitorclean.Application.Feature.visitor.Interface;

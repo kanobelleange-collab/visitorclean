@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using MediatR;
 using visitorclean.Domain.Entities;
 using visitorclean.Application.Feature.visitor.Queries.Getvisitorwithvisitdto;
+using visitorclean.Application.Feature.visitor.Dto;
 
 namespace visitorclean.Application.Feature.visitor.Queries.Getvisitorbyperiod;
 

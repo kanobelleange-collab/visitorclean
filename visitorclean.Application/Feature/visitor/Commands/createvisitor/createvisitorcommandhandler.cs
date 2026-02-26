@@ -3,11 +3,14 @@ using visitorclean.Domain.Entities;
 using visitorclean.Application.Feature.visitor.Interface;
 using System.Threading;
 using System.Threading.Tasks;
-using visitorclean.Application.Service;
+using visitorclean.Application.Service.Interface;
 using AutoMapper;
 using Microsoft.VisualBasic;
 using System.Reflection.Metadata.Ecma335;
 using visitorclean.Application.Feature.visitor.Dto;
+using visitorclean.Application.Common;
+
+
 
 namespace visitorclean.Application.Feature.visitor.Commands.createvisitor;
 
@@ -28,7 +31,7 @@ namespace visitorclean.Application.Feature.visitor.Commands.createvisitor;
     public async Task <VisitorDto>Handle(CreateVisitorCommand request ,CancellationToken cancellationToken)
     {
         var hasPermission = await _permissionService
-            .HasPermission(request.UserId, Permissions.CreateVisitor);
+            .HasPermission(request.UserId, AppPermission.CreateVisitor);
 
         if (!hasPermission)
             throw new UnauthorizedAccessException();

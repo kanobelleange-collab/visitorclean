@@ -1,5 +1,5 @@
 using MediatR;
-using CleanVisitor.Application.Features.Visite.Dtos;
-using CleanVisitor.Core.Entities.Visits;
-namespace CleanVisitor.Application.Features.Visite.Querries.GetAllVisit;
+using visitorclean.Application.Feature.Visite.Dtos;
+using visitorclean.Domain.Entities;
+namespace visitorclean.Application.Feature.Visite.Querries.GetAllVisit;
 public record GetAllVisitQuery:IRequest<List<VisitDto>>{}

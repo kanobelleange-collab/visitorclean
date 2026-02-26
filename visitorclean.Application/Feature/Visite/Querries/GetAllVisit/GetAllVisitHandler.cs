@@ -1,10 +1,10 @@
 using MediatR;
 using AutoMapper;
-using CleanVisitor.Application.Features.Visite.Interfaces;
-using CleanVisitor.Core.Entities.Visits;
-using CleanVisitor.Application.Features.Visite.Dtos;
-using CleanVisitor.Application.Features.Visite.Querries.GetAllVisit;
-namespace CleanVisitor.Application.Features.Visite.Querries.GetAllVisit.GetAllVisitHandler;
+using visitorclean.Application.Feature.Visite.Interfaces;
+using visitorclean.Domain.Entities;
+using visitorclean.Application.Feature.Visite.Dtos;
+using visitorclean.Application.Feature.Visite.Querries.GetAllVisit;
+namespace visitorclean.Application.Features.Visite.Querries.GetAllVisit.GetAllVisitHandler;
 public class GetAllVisitHandler:IRequestHandler<GetAllVisitQuery, List<VisitDto>>
 {
     private readonly IVisitRepository _repository;

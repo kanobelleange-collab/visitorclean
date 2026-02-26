@@ -1,7 +1,7 @@
-using CleanVisitor.Core.Entities.Visits;
+using visitorclean.Domain.Entities;
 using MediatR;
-using CleanVisitor.Application.Features.Visite.Dtos;
-namespace CleanVisitor.Application.Features.Visite.Querries.GetByDateVisit;
+using visitorclean.Application.Feature.Visite.Dtos;
+namespace visitorclean.Application.Feature.Visite.Querries.GetByDateVisit;
 public record GetByDateVisitQuery : IRequest<VisitDto>
 {
     public DateTime Date{get;set;}

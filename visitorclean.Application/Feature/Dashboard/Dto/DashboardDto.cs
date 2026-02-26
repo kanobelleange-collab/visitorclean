@@ -2,7 +2,7 @@ using System;
 using visitorclean.Domain.Entities;
 
 
-namespace visitorclean.Application.Dashboard.Dto;
+namespace visitorclean.Application.Feature.Dashboard.Dto;
 
 public class DashboardDto
 {

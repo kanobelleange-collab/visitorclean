@@ -3,6 +3,8 @@ using MediatR;
 using System;
 using System.Threading.Tasks;
 using visitorclean.Application.Feature.visitor.Interface;
+using visitorclean.Application.Service.Interface;
+using visitorclean.Application.Common;
 
 namespace visitorclean.Application.Feature.visitor.Commands.deletevisitor;
 
@@ -21,7 +23,7 @@ public class DeleteVisitorCommandHandler:IRequestHandler<DeleteVisitorCommand , 
     public async Task<bool> Handle(DeleteVisitorCommand request ,CancellationToken cancellationToken)
     {
         var hasPermission = await _permissionService
-            .HasPermission(request.UserId, Permissions.DeleteVisitor);
+            .HasPermission(request.UserId, AppPermission.DeleteVisitor);
 
         if (!hasPermission)
             throw new UnauthorizedAccessException();

@@ -1,9 +1,12 @@
 using visitorclean.Domain.Entities;
 using MediatR;
 using System;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visitor.Interface;
+using visitorclean.Application.Feature.visitor.Dto;
 using System.Threading; // INDISPENSABLE pour CancellationToken
 using System.Threading.Tasks;
+
+
 namespace visitorclean.Application.Feature.visitor.Queries;
 public class GetAllvisitorqueryHandler:IRequestHandler<GetAllvisitorquery, IEnumerable<Visitor>>
 {

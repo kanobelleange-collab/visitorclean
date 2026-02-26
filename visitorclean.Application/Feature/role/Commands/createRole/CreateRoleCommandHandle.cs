@@ -3,6 +3,8 @@ using AutoMapper;
 using visitorclean.Application.Feature.role.Dto;
 using visitorclean.Application.Feature.role.Interface;
 using visitorclean.Domain.Entities;
+using visitorclean.Application.Service.Interface;
+using visitorclean.Application.Common;
 
 namespace visitorclean.Application.Feature.role.Commands.createRole;
 
@@ -16,12 +18,12 @@ public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, RoleD
     {
         _repo = repo;
         _mapper = mapper;
-        _permissionServices=permissionService;
+        _permissionService=permissionService;
     }
     public async Task <RoleDto>Handle(CreateRoleCommand request,CancellationToken cancellationToken)
     {
         var hasPermission = await _permissionService
-            .HasPermission(request.UserId, Permissions.CreateRole);
+            .HasPermission(request.UserId, AppPermission.CreateRole);
 
         if (!hasPermission)
             throw new UnauthorizedAccessException();

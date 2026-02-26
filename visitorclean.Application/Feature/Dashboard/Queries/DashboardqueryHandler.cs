@@ -2,8 +2,9 @@ using System;
 using visitorclean.Application.Feature.Dashboard.Queries;
 using MediatR;
 using visitorclean.Domain.Entities;
-using visitorclean.Application.DTOs;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.Dashboard.Dto;
+using visitorclean.Application.Feature.Dashboard.Interface;
+using visitorclean.Application.Feature.users.Interface;
 
 
 namespace visitorclean.Application.Feature.Dashboard.Queries;

@@ -1,9 +1,9 @@
-using CleanVisitor.Application.Features.Visite.Dtos.ServiceDto;
+using visitorclean.Application.Feature.Visite.Dtos.ServiceDto;
 using MediatR;
 using AutoMapper;
-using CleanVisitor.Application.Features.Visite.Interfaces;
-using CleanVisitor.Application.Features.Visite.Querries.GetVisitCountByServiceStatut.GetVisitCountByServiceStatutQuery;
-namespace CleanVisitor.Application.Features.Visitors.Querries.GetVisitCountByServiceStatut.GetVisitorCountByServiceHandler;
+using visitorclean.Application.Feature.Visite.Interfaces;
+using visitorclean.Application.Feature.Visite.Querries.GetVisitCountByServiceStatut.GetVisitCountByServiceStatutQuery;
+namespace visitorclean.Application.Feature.Visitors.Querries.GetVisitCountByServiceStatut.GetVisitorCountByServiceHandler;
 public class GetVisitCountByServiceHandler:IRequestHandler<GetVisitCountByServiceStatutQuery, List<ServiceDto>>
 {
     private readonly IVisitRepository _repository;

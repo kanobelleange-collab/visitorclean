@@ -3,7 +3,10 @@ using visitorclean.Domain.Entities;
 using System;
 using System.Threading.Tasks;
 using visitorclean.Application.Feature.visitor.Queries.Getvisitorwithvisitdto;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visitor.Interface;
+using visitorclean.Application.Feature.visitor.Dto;
+using visitorclean.Application.Feature.visit.Dto;
+
 
 namespace visitorclean.Application.Feature.visitor.Queries.Getvisitorwithvisitdto;
 
