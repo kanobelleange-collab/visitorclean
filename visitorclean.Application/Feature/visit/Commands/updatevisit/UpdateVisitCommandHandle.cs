@@ -5,6 +5,8 @@ using AutoMapper;
 using visitorclean.Application.Feature.visit.Commands.updatevisit;
 using System.Net;
 using visitorclean.Application.Feature.visit.Interface;
+using visitorclean.Application.Service.Interface;
+using visitorclean.Application.Common;
 
 namespace visitorclean.Application.Feature.visit.Commands.updatevisit;
 
@@ -23,7 +25,7 @@ public class UpdateVisitCommandHandler:IRequestHandler<UpdateVisitCommand, Visit
     public async Task<VisitDto> Handle(UpdateVisitCommand request ,CancellationToken cancellationToken)
     {
         var hasPermission = await _permissionService
-            .HasPermission(request.UserId, Permissions.UpdateVisit);
+            .HasPermission(request.UserId, AppPermission.UpdateVisit);
 
         if (!hasPermission)
             throw new UnauthorizedAccessException();

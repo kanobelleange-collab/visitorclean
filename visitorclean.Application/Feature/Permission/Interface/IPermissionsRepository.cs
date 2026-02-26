@@ -1,7 +1,9 @@
 using visitorclean.Domain.Entities;
 using System;
 using visitorclean.Application.Service;
-namespace visitorclean.Application.Permission.Interface;
+
+
+namespace visitorclean.Application.Feature.Permission.Interface;
 
 public interface IPermissionRepository
 {

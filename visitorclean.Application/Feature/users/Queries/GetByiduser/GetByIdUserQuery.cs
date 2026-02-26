@@ -1,7 +1,7 @@
 using System;
 using visitorclean.Domain.Entities;
 
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.users.Dto;
 using MediatR;
 using System.Net;
 

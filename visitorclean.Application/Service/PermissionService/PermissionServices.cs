@@ -1,30 +1,30 @@
-using visitorclean.Application.Interfaces;
+using visitorclean.Application.Service.Interface;
 using visitorclean.Domain.Entities;
 using System;
 using MediatR;
+using visitorclean.Application.Feature.Permission.Interface;
 
 
 namespace visitorclean.Application.Service.PermissionService;
 
 public class PermissionService : IPermissionService
 {
-    private readonly IPermissionRepository _permissionRepository;
+    private readonly IDbConnection _connection;
 
-    public PermissionService(IPermissionRepository permissionRepository)
+    public async Task<bool> HasPermissionAsync(int userId, string permissionNom)
     {
-        _permissionRepository = permissionRepository;
-    }
+        var sql = @"
+            SELECT 1
+            FROM Users u
+            INNER JOIN RolePermissions rp ON rp.RoleId = u.RoleId
+            INNER JOIN Permissions p ON p.Id = rp.PermissionId
+            WHERE u.Id = @UserId
+            AND p.Name = @PermissionNom
+            LIMIT 1
+        ";
 
-    public async Task<bool> HasPermission(int userId, string permissionNom)
-    {
-        if (string.IsNullOrWhiteSpace(permissionNom))
-            return false;
+        var result = await _connection.ExecuteScalarAsync<int?>(sql, new { userId, permissionNom });
 
-        var permissions = await _permissionRepository
-            .GetPermissionsByUserId(userId);
-
-        return permissions
-            .Any(p => p.Equals(permissionNom, 
-                StringComparison.OrdinalIgnoreCase));
+        return result.HasValue;
     }
 }

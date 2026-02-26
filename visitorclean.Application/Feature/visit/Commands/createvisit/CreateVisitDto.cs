@@ -1,6 +1,7 @@
 using visitorclean.Domain.Entities;
 using System;
 using visitorclean.Domain.Enums;
+
 namespace visitorclean.Application.Feature.visit.Commands.CreateVisitDto;
 
 public class CreateVisitDto

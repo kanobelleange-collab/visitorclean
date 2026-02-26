@@ -6,6 +6,9 @@ using System.Net;
 using visitorclean.Application.Feature.users.Commands.updateuser;
 using visitorclean.Application.Feature.users.Dto;
 using AutoMapper;
+using visitorclean.Application.Service.Interface;
+using visitorclean.Application.Feature.visitor.Interface;
+using visitorclean.Application.Common;
 
 namespace visitorclean.Application.Feature.users.Commands.updateuser;
 public class UpdateUserCommandHandler:IRequestHandler<UpdateUserCommand, UserDto>
@@ -24,7 +27,7 @@ public class UpdateUserCommandHandler:IRequestHandler<UpdateUserCommand, UserDto
     public async Task<UserDto> Handle(UpdateUserCommand request ,CancellationToken cancellationToken)
     {
         var hasPermission = await _permissionService
-            .HasPermission(request.UserId, Permissions.UpdateUser);
+            .HasPermission(request.UserId,AppPermission.UpdateUser);
 
         if (!hasPermission)
             throw new UnauthorizedAccessException();

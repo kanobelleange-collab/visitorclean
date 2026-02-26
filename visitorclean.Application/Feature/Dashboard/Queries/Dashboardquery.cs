@@ -1,7 +1,7 @@
 using System;
 using visitorclean.Domain.Entities;
 using MediatR;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.Dashboard.Dto;
 
 namespace visitorclean.Application.Feature.Dashboard.Queries;
 

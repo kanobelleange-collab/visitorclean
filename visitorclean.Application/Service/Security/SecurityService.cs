@@ -1,7 +1,7 @@
 
 using System.Security.Cryptography;
 using System.Text;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Service.Interface;
 
 
 namespace visitorclean.Application.Service.Security;

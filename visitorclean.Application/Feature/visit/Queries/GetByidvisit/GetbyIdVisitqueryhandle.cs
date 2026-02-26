@@ -2,10 +2,10 @@ using visitorclean.Domain.Entities;
 using System;
 using System.Threading.Tasks;
 using MediatR;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visit.Interface;
 using visitorclean.Application.Feature.visit.Queries.GetByidvisit;
 using AutoMapper;
-using visitorclean .Application.DTOs;
+using visitorclean .Application.Feature.visit.Dto;
 
 namespace visitorclean.Application.Feature.visit.Queries.GetByidvisit;
 

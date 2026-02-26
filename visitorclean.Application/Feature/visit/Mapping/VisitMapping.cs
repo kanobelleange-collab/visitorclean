@@ -3,7 +3,7 @@ using visitorclean.Domain.Entities;
 using visitorclean.Application.Feature.visit.Commands.createvisit;
 using visitorclean.Application.Feature.visit.Commands.updatevisit;
 using visitorclean.Application.Feature.visit.Commands.CreateVisitDto;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visit.Dto;
 using System.Security;
 using System.Runtime.InteropServices;
 using System.Runtime;

@@ -1,7 +1,7 @@
 using System;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visit.Dto;
 using MediatR;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visit.Interface;
 using System.Threading.Tasks;
 using System.Threading;
 using visitorclean.Application.Feature.visit.Queries.Getallvisit;

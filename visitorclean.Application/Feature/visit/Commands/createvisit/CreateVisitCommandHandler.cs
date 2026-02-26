@@ -6,6 +6,8 @@ using AutoMapper;
 using MediatR;
 using visitorclean.Application.Feature.visit.Dto;
 using visitorclean.Application.Feature.visit.Commands.createvisit;
+using visitorclean.Application.Service.Interface;
+using visitorclean.Application.Common;
 
 
 namespace visitorclean.Application.Feature.visit.Commands.createvisit;
@@ -26,7 +28,7 @@ public class CreateVisitCommandHandler : IRequestHandler<CreateVisitCommand , Vi
     public async Task <VisitDto>Handle(CreateVisitCommand request ,CancellationToken cancellationToken)
     {
         var hasPermission = await _permissionService
-            .HasPermission(request.UserId, Permissions.CreateVisit);
+            .HasPermission(request.UserId,AppPermission.CreateVisit);
 
         if (!hasPermission)
             throw new UnauthorizedAccessException();

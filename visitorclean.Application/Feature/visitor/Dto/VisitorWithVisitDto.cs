@@ -1,9 +1,10 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visitor.Dto;
 using System;
+using visitorclean.Application.Feature.visit.Dto;
 
 
-namespace visitorclean.Application.Feature.visitor.Queries.Getvisitorwithvisitdto;
+namespace visitorclean.Application.Feature.visitor.Dto;
 
 public  sealed class VisitorWithVisitDto
 {

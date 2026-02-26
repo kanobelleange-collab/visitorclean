@@ -1,13 +1,14 @@
 using System;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.users.Dto;
 using MediatR;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.users.Interface;
 using System.Threading.Tasks;
 using System.Threading;
-using visitorclean.Application.Feature.user.Queries.Getalluser;
+using visitorclean.Application.Feature.users.Queries.Getalluser;
 using AutoMapper;
+using visitorclean.Application.Feature.visit.Interface;
 
-namespace visitorclean.Application.Feature.user.Queries.Getalluser;
+namespace visitorclean.Application.Feature.users.Queries.Getalluser;
 
 public class GetAllUserQueryHandler:IRequestHandler<GetAllUserQuery, List<UserDto>>
 {

@@ -1,5 +1,5 @@
 using System;
-using visitorclean.Application.DTOs;
+using visitorclean.Application.Feature.visit.Dto;
 using visitorclean.Application.Feature.visit.Queries;
 using MediatR; 
 using visitorclean.Domain.Entities;

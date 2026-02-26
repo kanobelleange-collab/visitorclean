@@ -11,4 +11,5 @@ public record CreateRoleCommand: IRequest<RoleDto>
 {
     public int id {get;set;}
     public required string Nom{get;set;}
+    public required int UserId{get;set;}
 }
