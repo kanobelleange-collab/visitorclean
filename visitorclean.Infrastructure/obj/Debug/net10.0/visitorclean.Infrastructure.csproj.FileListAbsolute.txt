@@ -1,6 +1,0 @@
-C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Infrastructure\obj\Debug\net10.0\visitorclean.Infrastructure.csproj.AssemblyReference.cache
-C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Infrastructure\obj\Debug\net10.0\visitorclean.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Infrastructure\obj\Debug\net10.0\visitorclean.Infrastructure.AssemblyInfoInputs.cache
-C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Infrastructure\obj\Debug\net10.0\visitorclean.Infrastructure.AssemblyInfo.cs
-C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Infrastructure\obj\Debug\net10.0\visitorclean.Infrastructure.csproj.CoreCompileInputs.cache
-C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.Infrastructure\obj\Debug\net10.0\visitorclean.Infrastructure.sourcelink.json
