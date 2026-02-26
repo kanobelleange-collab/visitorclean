@@ -1,7 +1,8 @@
 using System;
 using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.role;
 
-namespace visitorclean.Domain.Entities;
+namespace visitorclean.Domain.Entities.user;
 
 public class Users
 {

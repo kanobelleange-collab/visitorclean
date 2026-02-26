@@ -1,6 +1,6 @@
 using System;
 
-namespace visitorclean.Domain.Entities;
+namespace visitorclean.Domain.Entities.role;
 
 public class Roles
 {

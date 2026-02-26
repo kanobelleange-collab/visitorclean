@@ -2,7 +2,7 @@ using visitorclean.Domain.Entities;
 using System;
 using System.Threading.Tasks;
 using MediatR;
-using visitorclean.Domain.Enums;
+using visitorclean.Domain.Enum;
 using visitorclean.Application.Feature.users.Dto;
 
 namespace visitorclean.Application.Feature.users.Commands.createuser;

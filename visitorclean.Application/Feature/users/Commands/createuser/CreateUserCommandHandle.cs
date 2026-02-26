@@ -1,10 +1,11 @@
-using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.user;
 using System;
 using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using visitorclean.Application.Feature.users.Dto;
 using visitorclean.Application.Feature.users.Commands.createuser;
+using visitorclean.Application.Feature.Permission.Interface;
 using visitorclean.Application.Feature.users.Interface;
 using System.Security;
 
@@ -24,7 +25,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , User
         _permissionService=permissionService;
     }
 
-    public async Task<userDto> Handle(CreateUserCommand request,CancelllationToken cancelllationToken)
+    public async Task<UserDto> Handle(CreateUserCommand request,CancelllationToken cancelllationToken)
     {
         var hasPermission = await _permissionService
             .HasPermission(request.UserId, Permissions.CreateUser);

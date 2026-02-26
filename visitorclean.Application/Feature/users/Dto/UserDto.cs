@@ -2,7 +2,7 @@ using visitorclean.Domain.Entities;
 using System;
 
 
-namespace visitorclean.Application.users.Dto;
+namespace visitorclean.Application.Feature.users.Dto;
 
 public class UserDto
 {
