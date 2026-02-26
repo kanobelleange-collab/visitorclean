@@ -19,5 +19,6 @@ public class RolePermissionRepository : IRolePermissionRepository
         VALUES (@RoleId, @PermissionId)";
         using var connection= new SqlConnection(_connectionString);
         return await connection.QuerySingleAsync<RolePermissionDto>(sql, role_permission);
+        
     }
 }
