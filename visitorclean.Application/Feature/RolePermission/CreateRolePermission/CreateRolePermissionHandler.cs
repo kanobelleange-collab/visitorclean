@@ -1,11 +1,11 @@
 using MediatR;
 using AutoMapper;
-using CleanVisitor.Core.Entities.RolesPermissions;
-using CleanVisitor.Application.Features.RolePermission.Dtos;
-using  CleanVisitor.Application.Features.RolePermission.Interfaces;
-using CleanVisitor.Application.Features.Users.Commande.CreateUser;
-using CleanVisitor.Application.Features.RolePermission.Command.CreateRolePermission;
-namespace CleanVisitor.Application.Feautures.Users.Commande.CommandHandler;
+using MediatR;
+using visitorclean.Application.Feature.RolePermission.Dtos;
+using visitorclean.Application.Feature.RolePermission.Interfaces;
+using visitorclean.Domain.Entities.RolesPermissions;
+using visitorclean.Application.Feature.RolePermission.Command.CreateRolePermission;
+namespace visitorclean.Application.Feature.RolePermission.Command.CreateRolePermission.CreateRolePermissionHandler;
 public class CreateRolePermissionHandler:IRequestHandler<CreateRolePermissionCommand, RolePermissionDto>
 {
     private readonly IRolePermissionRepository _repository;

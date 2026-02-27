@@ -21,6 +21,13 @@ namespace visitorclean.Application.Feauture.Visite.Commandes.Handler.VisitHandle
 
         public async Task<VisitDto> Handle(CreateVisitCommand request, CancellationToken cancellationToken)
         {
+             var hasPermission = await _permissionService
+            .HasPermission(request.UserId, AppPermission.CreateUser);
+
+        if (!hasPermission)
+            throw new UnauthorizedAccessException();
+    
+
             var visit= _mapper.Map<Visit>(request);
              await _repository.AddAsync(visit);
              return _mapper.Map<VisitDto>(visit);

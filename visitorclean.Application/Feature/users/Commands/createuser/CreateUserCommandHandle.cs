@@ -26,8 +26,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , User
         _mapper=mapper;
         _permissionService=permissionService;
     }
-    public async Task<UserDto> Handle(CreateUserCommand request,CancelllationToken cancelllationToken);
-    public async Task<UserDto> Handle(CreateUserCommand request ,CancellationToken cancellationToken)
+    public async Task<UserDto> Handle(CreateUserCommand request,CancelllationToken cancelllationToken)
 
     {
         var hasPermission = await _permissionService
