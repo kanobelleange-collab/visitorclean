@@ -4,6 +4,7 @@ using AutoMapper;
 using visitorclean.Application.Feature.users.Dto;
 using visitorclean.Domain.Entities;
 using System.Threading .Tasks;
+using visitorclean.Application.Feature.users.Queries.Getalluser;
 using System.Runtime.Versioning;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

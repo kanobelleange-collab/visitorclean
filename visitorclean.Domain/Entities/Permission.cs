@@ -1,7 +1,8 @@
 using System;
 
 
-namespace visitorclean.Domain.Entities.Permission;
+
+namespace visitorclean.Domain.Entities;
 
 public class Permissions
 {

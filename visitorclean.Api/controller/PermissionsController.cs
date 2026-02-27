@@ -1,13 +1,14 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-
+using  visitorclean.Application.Permission.Queries.GetAllPermission.GetAllPermissionsQuery;
 using visitorclean.Domain.Entities;
 using System.Threading .Tasks;
 using System.Runtime.Versioning;
 using visitorclean.Application.Service.Interface;
 using visitorclean.Application.Service;
 using visitorclean.Application.Feature.Permission.Interface;
+using visitorclean.Application.Feature.Permission.Queries.GetAllPermission;
 using Microsoft.AspNetCore.Authorization;
 using MediatR;
 

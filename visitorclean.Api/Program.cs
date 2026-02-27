@@ -7,15 +7,17 @@ using visitorclean.Application.Feature.users.Interface;
 using Microsoft.AspNetCore.Authorization;
 using visitorclean.Infrastructure.Repository;
 using visitorclean.Infrastructure.Dbcontext;
-using MediatR;
+using visitorclean.Application.Feature.RolePermission.Interfaces;
 using AutoMapper;
-using visitorclean.Application.Service;
+using visitorclean.Infrastructure.Repositories;
+using visitorclean.Infrastructure.Repositories.RolePermissionRepository;
 using visitorclean.Application.Feature.visitor.Commands.createvisitor;
 using visitorclean.Application.Feature.visitor.Commands.updatevisitor;
 using visitorclean.Application.Feature.visitor.Commands.deletevisitor;
 using visitorclean.Application.Feature.visit.Commands.createvisit;
+using visitorclean.Application.Feauture.visit.Commands.createvisit;
 using visitorclean.Application.Feature.visit.Commands.updatevisit;
-using visitorclean.Application.Feature.visit.Mapping;
+using visitorclean.Application.Feature.visit.MappingVisit;
 using visitorclean.Application.Feature.role.Commands.createRole;
 using visitorclean.Application.Feature.users.Commands.updateuser;
 using visitorclean.Application.Feature.users.Commands.createuser;
@@ -38,7 +40,7 @@ builder.Services.AddAuthorization();
 
 // AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddAutoMapper(typeof(VisitMapping));
+builder.Services.AddAutoMapper(typeof(MapperVisit));
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -62,8 +64,8 @@ builder.Services.AddMediatR(cfg =>
 builder.Services.AddMediatR(cfg =>
 {
     cfg.RegisterServicesFromAssemblies(
-        typeof(CreateVisitCommandHandler).Assembly,
-        typeof(UpdateVisitCommandHandler).Assembly
+        typeof(CreateVisitHandler).Assembly,
+        typeof(UpdateVisitHandler).Assembly
         
     );
 });
@@ -72,6 +74,7 @@ builder.Services.AddMediatR(cfg =>
 // DbContext, repository et service
 builder.Services.AddScoped<DbContext>();
 builder.Services.AddScoped<IVisitorRepository, VisitorRepository>();
+builder.Services.AddScoped<IRolePermissionRepository, RolePermissionRepository>();
 builder.Services.AddScoped<ISecurityService, SecurityService>();
 builder.Services.AddScoped<IVisitRepository, VisitRepository>();
 builder.Services.AddScoped<IVisitorReadRepository, VisitorWithVisitRepository>();

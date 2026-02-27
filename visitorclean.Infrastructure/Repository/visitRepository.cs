@@ -1,19 +1,13 @@
-<<<<<<< HEAD
-=======
 using visitorclean.Domain.Entities;
 using visitorclean.Application.Feature.visit.Interface;
 using Dapper;
->>>>>>> bc39eb6 (modification dans l'ensemble)
 using System.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
-using Dapper;
-using visitorclean.Application.Feature.Visite.Interfaces;
-using visitorclean.Application.Feature.Visite.Dtos.ServiceDto;
-using visitorclean.Application.Feature.Visite.Dtos;
-using visitorclean.Domain.Entities;
+using visitorclean.Application.Feature.visit.Dto.ServiceDto;
+using visitorclean.Application.Feature.visit.Dto;
 using visitorclean.Infrastructure.Dbcontext;
-namespace CleanVisitor.Infrastructure.Repositories;
+namespace visitorclean.Infrastructure.Repositories;
 
 
 public class VisitRepository :IVisitRepository

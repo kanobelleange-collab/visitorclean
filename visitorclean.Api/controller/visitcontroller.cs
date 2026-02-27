@@ -1,31 +1,19 @@
 using System.Data;
 using Microsoft.AspNetCore.Mvc;
-<<<<<<< HEAD
-using MediatR;
-using visitorclean.Infrastructure.Dbcontext;
-using visitorclean.Application.Feature.Visite.Commande.CreateVisit;
-using visitorclean.Application.Feature.Visite.Commande.DeleteVisit;
-using visitorclean.Application.Feature.Visite.Commande.UpdateVisit.UpdateVisitCommand;
-using visitorclean.Application.Feature.Visite.Querries.GetAllVisit;
-using visitorclean.Application.Feature.Visite.Querries.GetByDateVisit;
-using visitorclean.Application.Feature.Visite.Querries.GetVisitById;
-using visitorclean.Application.Feature.Visite.Querries.GetVisitCountByServiceStatut.GetVisitCountByServiceStatutQuery;
-
-=======
-using AutoMapper;
 using visitorclean.Application.Feature.visit.Commands.createvisit;
 using visitorclean.Application.Feature.visit.Commands.updatevisit;
-using visitorclean.Application.Feature.visit.Queries.GetByidvisit;
-using visitorclean.Application.Feature.visit.Queries.Getallvisit;
-using visitorclean.Application.Feature.visit.Commands.CreateVisitDto;
+using visitorclean.Application.Feature.visit.Queries.GetVisitById;
+using visitorclean.Application.Feature.visit.Queries.GetAllVisit;
+using visitorclean.Application.Feature.visit.Queries.GetByDateVisit;
+using visitorclean.Application.Feature.visit.Commands.deletevisit;
 using visitorclean.Application.Feature.visit.Dto;
 using visitorclean.Application.Feature.visit.Interface;
 using Microsoft.AspNetCore.Authorization;
-
+using visitorclean.Application.Feature.visit.Queries.GetVisitCountByServiceStatut;
+using MediatR;
 namespace visitorclean.Api.controller;
 
 [Authorize]
->>>>>>> bc39eb6 (modification dans l'ensemble)
 [ApiController]
 [Route("api/[controller]")]
 public class VisitController : ControllerBase
@@ -61,9 +49,9 @@ public class VisitController : ControllerBase
         return Ok(visit);
     }
     [HttpDelete]
-    public async Task<IActionResult>DeleteAsync(int id)
+    public async Task<IActionResult>DeleteAsync(int id,int UserId)
     {
-        var visit=await _mediator.Send(new DeleteVisitCommand(id));
+        var visit=await _mediator.Send(new DeleteVisitCommand(id,UserId));
         if(visit==null) return NotFound("Aucune Visit Trouver");
         return Ok(visit);
     }

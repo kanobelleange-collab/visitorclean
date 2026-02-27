@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using visitorclean.Application.Feature.RolePermission.Commands.CreateRolePermission;
 using visitorclean.Application.Feature.RolePermission.Queries.GetAllRolePermissions;
 using visitorclean.Application.Feature.RolePermission.Queries.GetRolePermissionById;
@@ -24,9 +25,9 @@ public class RolePermissionController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetById(int id)
+    public async Task<IActionResult> GetById(int roleId, int permissionId)
     {
-        var result = await _mediator.Send(new GetRolePermissionByIdQuery(id));
+        var result = await _mediator.Send(new GetRolePermissionByIdQuery(roleId, permissionId));
         if (result == null)
             return NotFound();
 

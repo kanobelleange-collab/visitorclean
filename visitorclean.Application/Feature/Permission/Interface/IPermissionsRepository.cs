@@ -1,4 +1,4 @@
-using visitorclean.Domain.Entities.Permission;
+using visitorclean.Domain.Entities;
 using System;
 using visitorclean.Application.Service;
 namespace visitorclean.Application.Feature.Permission.Interface;

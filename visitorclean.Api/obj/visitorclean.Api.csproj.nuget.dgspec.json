@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.api\\visitorclean.Api.csproj": {}
+    "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Api\\visitorclean.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.api\\visitorclean.Api.csproj": {
+    "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Api\\visitorclean.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.api\\visitorclean.Api.csproj",
+        "projectUniqueName": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Api\\visitorclean.Api.csproj",
         "projectName": "visitorclean.Api",
-        "projectPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.api\\visitorclean.Api.csproj",
-        "packagesPath": "C:\\Users\\BELLE ANGE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.api\\obj\\",
+        "projectPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Api\\visitorclean.Api.csproj",
+        "packagesPath": "C:\\Users\\AIGLE INORMATIQUE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\BELLE ANGE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AIGLE INORMATIQUE\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,17 +26,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj": {
-                "projectPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj"
+              "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj": {
+                "projectPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj"
               },
-              "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj"
+              "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj"
               }
             }
           }
@@ -51,7 +52,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
@@ -117,7 +118,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
@@ -535,20 +536,20 @@
         }
       }
     },
-    "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj": {
+    "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj",
+        "projectUniqueName": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj",
         "projectName": "visitorclean.Application",
-        "projectPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj",
-        "packagesPath": "C:\\Users\\BELLE ANGE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Application\\obj\\",
+        "projectPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj",
+        "packagesPath": "C:\\Users\\AIGLE INORMATIQUE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\BELLE ANGE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AIGLE INORMATIQUE\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -557,14 +558,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj": {
-                "projectPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj"
+              "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj": {
+                "projectPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj"
               }
             }
           }
@@ -579,7 +581,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
@@ -622,7 +624,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -900,20 +902,20 @@
         }
       }
     },
-    "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj": {
+    "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj",
         "projectName": "visitorclean.Domain",
-        "projectPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj",
-        "packagesPath": "C:\\Users\\BELLE ANGE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Domain\\obj\\",
+        "projectPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Domain\\visitorclean.Domain.csproj",
+        "packagesPath": "C:\\Users\\AIGLE INORMATIQUE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\BELLE ANGE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AIGLE INORMATIQUE\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -922,6 +924,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -940,7 +943,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
@@ -961,7 +964,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
@@ -1239,20 +1242,20 @@
         }
       }
     },
-    "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj": {
+    "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj",
         "projectName": "visitorclean.Infrastructure",
-        "projectPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\BELLE ANGE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Infrastructure\\visitorclean.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\AIGLE INORMATIQUE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\BELLE ANGE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\AIGLE INORMATIQUE\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -1261,14 +1264,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj": {
-                "projectPath": "C:\\Users\\BELLE ANGE\\Desktop\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj"
+              "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj": {
+                "projectPath": "C:\\Users\\AIGLE INORMATIQUE\\Desktop\\visitorclean\\visitorclean\\visitorclean.Application\\visitorclean.Application.csproj"
               }
             }
           }
@@ -1283,7 +1287,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
@@ -1318,7 +1322,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
