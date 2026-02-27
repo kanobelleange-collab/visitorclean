@@ -11,11 +11,11 @@ public class DashboardDto
     public int TotalVisits { get; set; }
     public int TodayVisits { get; set; }
 
-    public List<MonthlyStatDto> MonthlyStats { get; set; } 
+    public List<MonthlyStatsDto> MonthlyStats { get; set; } 
         = new();
 }
 
-public class MonthlyStatDto
+public class MonthlyStatsDto
 {
     public required string Month { get; set; }
     public int VisitCount { get; set; }

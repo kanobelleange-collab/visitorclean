@@ -8,7 +8,7 @@ public interface IRoleRepository
 {
     Task<Roles?> GetByNameAsync(string nom);
     Task<IEnumerable<Roles>> GetAllAsync();
-    Task<int> CreateAsync(Roles role);
+    Task<RoleDto> CreateAsync(Roles role);
     Task UpdateAsync(Roles role);
     Task DeleteAsync(int id);
     Task<Roles?> GetByIdAsync(int id);

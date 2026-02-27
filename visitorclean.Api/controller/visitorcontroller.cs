@@ -5,18 +5,19 @@ using visitorclean.Application.Feature.visitor.Commands.createvisitor;
 using visitorclean.Application.Feature.visitor.Commands.updatevisitor;
 using Microsoft.AspNetCore.Mvc;
 using visitorclean.Application.Feature.visitor.Queries.GetByidvisitor;
+using Microsoft.AspNetCore.Authorization;
 
 using System.Threading.Tasks;
 using System.Runtime.Versioning;
 using System.Runtime.ExceptionServices;
 using visitorclean.Infrastructure.Repository;
 using AutoMapper;
-using visitorclean.Application.Feature.Visit.Dto;
+using visitorclean.Application.Feature.visitor.Dto;
 
 namespace visitorclean.Api.controller;
 
 
-[Autorize]
+[Authorize]
 [ApiController]
 
 [Route("Api/Visitor")]
@@ -50,9 +51,11 @@ public class VisitorController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult>DeleteAsync( int id)
+    public async Task<IActionResult>DeleteAsync( int id,int UserId)
     {
-    await _mediator.Send(new DeleteVisitorCommand(id));
+        var userId = int.Parse(User.FindFirst("id")?.Value);
+        
+    await _mediator.Send(new DeleteVisitorCommand(id ,UserId));
     return NoContent();
     }
 

@@ -1,0 +1,9 @@
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.api\obj\Debug\net10.0\visitorclean.Api.csproj.AssemblyReference.cache
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.api\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.api\obj\Debug\net10.0\visitorclean.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.api\obj\Debug\net10.0\visitorclean.Api.AssemblyInfoInputs.cache
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.api\obj\Debug\net10.0\visitorclean.Api.AssemblyInfo.cs
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.api\obj\Debug\net10.0\visitorclean.Api.csproj.CoreCompileInputs.cache
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.api\obj\Debug\net10.0\visitorclean.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.api\obj\Debug\net10.0\visitorclean.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\BELLE ANGE\Desktop\visitorclean\visitorclean.api\obj\Debug\net10.0\visitorclean.Api.sourcelink.json

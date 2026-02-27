@@ -1,6 +1,6 @@
 using MediatR;
 using visitorclean.Domain.Entities;
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.visitor.Interface;
 using Dapper;
 using System.Data;
 using System.ComponentModel.Design;
@@ -8,7 +8,8 @@ using Microsoft.VisualBasic;
 using visitorclean.Infrastructure.Dbcontext;
 using visitorclean.Application.Service;
 using visitorclean.Application.Feature.visitor.Queries.Getvisitorwithvisitdto;
-using visitorclean.Application.visitor.Dto;
+using visitorclean.Application.Feature.visitor.Dto;
+using visitorclean.Application.Feature.visit.Dto;
 
 
 

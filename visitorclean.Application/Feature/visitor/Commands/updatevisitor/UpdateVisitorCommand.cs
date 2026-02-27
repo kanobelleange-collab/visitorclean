@@ -12,5 +12,6 @@ public record UpdateVisitorCommand: IRequest<VisitorDto>
     public required  string Nom{get;set;}
     public required string Email{get;set;}
     public required string Password{get;set;}
+    public required int UserId{get;set;}
 
 }

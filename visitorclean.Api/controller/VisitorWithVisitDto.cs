@@ -9,11 +9,12 @@ using visitorclean.Application.Feature.visitor.Queries.Getvisitorwithvisitdto;
 using visitorclean.Application.Feature.visitor.Queries.Getvisitorbyperiod;
 using MediatR;
 using System.Net.Cache;
+using Microsoft.AspNetCore.Authorization;
 
 namespace visitorclean.Api.controller;
 
 
-[Autorize]
+[Authorize]
 [ApiController]
 
 

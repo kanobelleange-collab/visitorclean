@@ -7,10 +7,13 @@ using System.Threading .Tasks;
 using System.Runtime.Versioning;
 using visitorclean.Application.Service.Interface;
 using visitorclean.Application.Service;
+using visitorclean.Application.Feature.Permission.Interface;
+using Microsoft.AspNetCore.Authorization;
+using MediatR;
 
 namespace visitorclean.Api.controller;
 
-[Autorize]
+[Authorize]
 [ApiController]
 
 [Route("Api/Permissions")]

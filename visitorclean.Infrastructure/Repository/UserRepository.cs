@@ -6,6 +6,8 @@ using System.ComponentModel.Design;
 using Microsoft.VisualBasic;
 using visitorclean.Infrastructure.Dbcontext;
 using visitorclean.Application.Service;
+using visitorclean.Application.Feature.users.Interface;
+
 
 namespace visitorclean.Infrastructure.Repository;
 
@@ -29,16 +31,17 @@ public class UserRepository : IUserRepository
 
         return await Connection.ExecuteScalarAsync<int>(sql, user);
     }
-     public async Task<User?> GetByEmailAsync(string email)
+     public async Task<Users?> GetByEmailAsync(string email)
     {
+         using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Users WHERE Email = @Email";
 
-        return await _connection.QueryFirstOrDefaultAsync<User>(
+        return await Connection.QueryFirstOrDefaultAsync<Users>(
             sql,
             new { Email = email });
     }
 
-    public async Task UpdateAsync(Users user)
+    public async Task <Users>UpdateAsync(Users user)
     {
          using  var Connection = _db.CreateConnection();
         var sql = @"
@@ -49,26 +52,30 @@ public class UserRepository : IUserRepository
             WHERE Id = @Id";
 
         await Connection.ExecuteAsync(sql, user);
+        return user;
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id)
     {
          using  var Connection = _db.CreateConnection();
         var sql = "UPDATE Users SET IsDeleted = 1 WHERE Id = @Id";
-        await Connection.ExecuteAsync(sql, new { Id = id });
+        
+        var rows= await Connection.ExecuteAsync(sql, new { Id = id });
+        return rows>0;
     }
 
     public async Task<Users?> GetByIdAsync(int id)
     {
          using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Users WHERE Id = @Id";
-        return await Connection.QueryFirstOrDefaultAsync<User>(sql, new { Id = id });
+        return await Connection.QueryFirstOrDefaultAsync<Users>(sql, new { Id = id });
     }
 
-    public async Task<IEnumerable<Users>> GetAllAsync()
+    public async Task<List<Users>> GetAllAsync()
     {
          using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Users WHERE IsDeleted = 0";
-        return await Connection.QueryAsync<User>(sql);
+        var result= await Connection.QueryAsync<Users>(sql);
+        return result.ToList();
     }
 }

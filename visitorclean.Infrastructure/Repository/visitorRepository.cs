@@ -1,5 +1,5 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.visitor.Interface;
+using visitorclean.Application.Feature.visitor.Interface;
 using Dapper;
 using System.Data;
 using System.ComponentModel.Design;

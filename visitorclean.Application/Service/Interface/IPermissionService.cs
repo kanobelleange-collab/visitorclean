@@ -6,5 +6,5 @@ namespace visitorclean.Application.Service.Interface;
 
 public interface IPermissionService
 {
-    Task<bool> HasPermission(int userId, string permission);
+    Task<bool> HasPermission(int userId, string permissionNom);
 }

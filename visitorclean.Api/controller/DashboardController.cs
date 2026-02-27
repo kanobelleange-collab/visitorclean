@@ -5,6 +5,12 @@ using visitorclean.Application.Feature.Dashboard.Dto;
 using visitorclean.Domain.Entities;
 using System.Threading .Tasks;
 using System.Runtime.Versioning;
+using Microsoft.AspNetCore.Authorization;
+using MediatR;
+using System.Security.Claims;
+using visitorclean.Application.Feature.Dashboard.Queries;
+
+
 
 namespace visitorclean.Api.controller;
 
@@ -16,7 +22,7 @@ public class DashboardController : ControllerBase
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
 
-    public RoleController(IMediator mediator, IMapper mapper)
+    public DashboardController(IMediator mediator, IMapper mapper)
     {
         _mediator=mediator;
         _mapper=mapper;

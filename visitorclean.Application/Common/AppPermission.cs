@@ -28,7 +28,7 @@ public static class AppPermission
 //PERMISSION visitor
     public const string CreateVisitor = "CreateVisitor";
     public const string UpdateVisitor = "UpdateVisitor";
-    public const string DleteVisitor = "DeleteVisitor";
+    public const string DeleteVisitor = "DeleteVisitor";
 
     public const string ViewDashboard = "ViewDashboard";
 

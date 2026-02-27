@@ -5,11 +5,13 @@ using visitorclean.Application.Feature.users.Dto;
 using visitorclean.Domain.Entities;
 using System.Threading .Tasks;
 using System.Runtime.Versioning;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using visitorclean.Application.Feature.users.Commands.createuser;
 
 
 
-
-[Autorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class UserController : ControllerBase
@@ -22,7 +24,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreatedAsync([FromBody]CreateUserCommand command)
+    public async Task<IActionResult> CreateAsync([FromBody]CreateUserCommand command)
     {
         var id = await _mediator.Send(command);
         return Ok(id);
@@ -31,7 +33,7 @@ public class UserController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllAsync()
     {
-        var users = await _mediator.Send(new GetAllUsersQuery());
+        var users = await _mediator.Send(new GetAllUserQuery());
         return Ok(users);
     }
 }

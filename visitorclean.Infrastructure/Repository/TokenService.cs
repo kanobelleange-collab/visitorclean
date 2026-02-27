@@ -1,4 +1,4 @@
-using visitorclean.Application.Interface;
+using visitorclean.Application.Feature.Authentification.Interface;
 using visitorclean.Domain.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -23,7 +23,7 @@ public class TokenService : ITokenService
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Nom, user.Username),
+            new Claim(ClaimTypes.Name, user.Username),
             new Claim(ClaimTypes.Role, user.RoleNom)
         };
 

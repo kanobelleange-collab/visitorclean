@@ -3,6 +3,8 @@ using visitorclean.Application.Service.Interface;
 using visitorclean.Domain.Entities;
 using System.Data;
 using visitorclean.Infrastructure.Dbcontext;
+using visitorclean.Application.Service.Interface;
+using visitorclean.Application.Feature.Permission.Interface;
 
 
 namespace visitorclean.Infrastructure.Repository;
@@ -21,7 +23,7 @@ public class PermissionRepository : IPermissionRepository
           using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Permissions";
 
-        var result = await _db.QueryAsync<Permissions>(sql);
+        var result = await Connection.QueryAsync<Permissions>(sql);
 
         return result.ToList();
     }
@@ -37,7 +39,7 @@ public class PermissionRepository : IPermissionRepository
             WHERE u.Id = @UserId
         ";
 
-        var result = await _db.QueryAsync<string>(sql, new { UserId = userId });
+        var result = await Connection.QueryAsync<string>(sql, new { UserId = userId });
 
         return result.ToList();
     }

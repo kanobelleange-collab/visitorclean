@@ -1,5 +1,5 @@
 using visitorclean.Domain.Entities;
-using visitorclean.Application.Dashboard.Interface;
+using visitorclean.Application.Feature.Dashboard.Interface;
 using Dapper;
 using System.Data;
 using System.ComponentModel.Design;
@@ -8,6 +8,8 @@ using visitorclean.Infrastructure.Dbcontext;
 using visitorclean.Application.Service;
 using AutoMapper;
 using visitorclean.Application.Feature.Dashboard.Dto;
+using visitorclean.Application.Feature.Dashboard.Interface;
+using System.IO.Pipelines;
 
 
 namespace visitorclean.Infrastructure.Repository;
@@ -19,6 +21,22 @@ public class DashboardRepository: IDashboardRepository{
     {
         _db=db;
         
+    }
+    public async Task<List<MonthlyStatsDto>> GetMonthlyStatsByUserAsync(int userId)
+{
+     using  var Connection = _db.CreateConnection();
+    var sql = @"
+    SELECT 
+        MONTH(DateVisit) AS Month,
+        COUNT(*) AS VisitCount
+    FROM Visit
+    WHERE UserId = @UserId
+    GROUP BY MONTH(DateVisit)
+    ORDER BY Month;
+    ";
+
+    var result =await Connection.QueryAsync<MonthlyStatsDto>(sql, new { UserId = userId });
+        return result.ToList();
     }
 
 
@@ -38,7 +56,7 @@ public class DashboardRepository: IDashboardRepository{
         var dashboard = await Connection.QueryFirstAsync<DashboardDto>(sql);
 
         dashboard.MonthlyStats = 
-        (await GetMonthlyStatsAsync()).ToList();
+        await GetMonthlyStatsAsync();
 
     return dashboard;
 
@@ -61,12 +79,13 @@ public class DashboardRepository: IDashboardRepository{
         var dashboard = await Connection.QueryFirstAsync<DashboardDto>(sql, new { UserId = userId });
 
         dashboard.MonthlyStats =
-        (await GetMonthlyStatsByUserAsync(userId)).ToList();
+        await GetMonthlyStatsByUserAsync(userId);
+        
 
         return dashboard;
     }
 
-    public async Task<IEnumerable<MonthlyStatDto>> GetMonthlyStatsAsync()
+    public async Task<List<MonthlyStatsDto>> GetMonthlyStatsAsync()
     {
          using  var Connection = _db.CreateConnection();
         var sql = @"
@@ -78,6 +97,7 @@ public class DashboardRepository: IDashboardRepository{
         ORDER BY Month
         ";
 
-        return await Connection.QueryAsync<MonthlyStatDto>(sql);
+        var result=  await Connection.QueryAsync<MonthlyStatsDto>(sql);
+        return result .ToList();
     }
 }

@@ -37,7 +37,7 @@ public class LoginCommandHandler : IRequestHandler<LoginCommand, AuthResponseDto
             throw new UnauthorizedAccessException("Email incorrect");
 
         // 🔐 2. Vérifier mot de passe
-        var hashedPassword = HashPassword(request.PasswordHash);
+        var hashedPassword = HashPassword(request.Password);
 
         if (user.PasswordHash != hashedPassword)
             throw new UnauthorizedAccessException("Mot de passe incorrect");

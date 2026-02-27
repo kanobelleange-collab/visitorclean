@@ -49,7 +49,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , User
     
 
   
-         var id = await _Repo.AddAsync(user);
+         var id = await _Repo.CreateAsync(user);
          user.Id = id;
         // 4️⃣ Mapper Entity → DTO
          return _mapper.Map<UserDto>(user);

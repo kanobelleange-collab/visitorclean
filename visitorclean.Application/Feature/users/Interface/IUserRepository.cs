@@ -9,10 +9,10 @@ public interface IUserRepository
 {
     Task<List<Users>> GetAllAsync();
     Task<int>CreateAsync(Users user);
-    Task<Users>Update(Users user);
+    Task<Users>UpdateAsync(Users user);
     Task<bool> DeleteAsync(int Id);
     Task<Users?> GetByEmailAsync(string email);
-    Task<Users>GetByIdAsync(int Id);
+    Task<Users?>GetByIdAsync(int Id);
 
     
         

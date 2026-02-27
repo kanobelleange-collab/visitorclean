@@ -35,10 +35,10 @@ public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, RoleD
         var role = _mapper.Map<Roles>(request);
 
         // 2️⃣ Sauvegarde en base
-        var id = await _repo.CreateAsync(role);
+        var result = await _repo.CreateAsync(role);
 
-        // 3️⃣ Affecter l’Id généré
-        role.Id = id;
+        
+        
 
         // 4️⃣ Retourner DTO
         return _mapper.Map<RoleDto>(role);

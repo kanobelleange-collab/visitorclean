@@ -5,4 +5,4 @@ using visitorclean.Application.Feature.visitor.Dto;
 
  namespace visitorclean.Application.Feature.visitor.Commands.createvisitor;
 
-public record CreateVisitorCommand(string nom,string email,string password,DateTime createdAT):IRequest<VisitorDto>;
+public record CreateVisitorCommand(string nom,string email,string password,DateTime createdAT,int UserId):IRequest<VisitorDto>;

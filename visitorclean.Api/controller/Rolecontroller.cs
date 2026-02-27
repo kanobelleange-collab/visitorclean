@@ -6,11 +6,16 @@ using visitorclean.Domain.Entities;
 using System.Threading .Tasks;
 using System.Runtime.Versioning;
 using visitorclean.Application.Feature.visit.Interface;
+using Microsoft.AspNetCore.Authorization;
+using visitorclean.Application.Feature.role.Commands.createRole;
+using visitorclean.Application.Feature.role.Queries.GetRoleByName;
+using visitorclean.Application.Feature.role.Queries.GetAllRole;
+using MediatR;
 
 
 namespace visitorclean.Api.controller;
 
-[Autorize]
+[Authorize]
 [ApiController]
 
 [Route("Api/Roles")]
@@ -27,7 +32,7 @@ public class RoleController : ControllerBase
     }
     public async Task<IActionResult> GetByNameAsync(string nom)
     {
-        var role=_mediator.send( new GetByNamequery(nom) );
+        var role=_mediator.Send( new GetByNameQuery(nom) );
         return Ok(role);
     }
 
