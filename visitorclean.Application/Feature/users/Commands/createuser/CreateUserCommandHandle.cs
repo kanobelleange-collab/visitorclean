@@ -14,7 +14,7 @@ using visitorclean.Application.Common;
 
 namespace visitorclean.Application.Feature.users.Commands.createuser;
 
-public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , UserDto>
+public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , int>
 {
     private readonly IUserRepository _Repo;
     private readonly IMapper _mapper;
@@ -26,7 +26,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , User
         _mapper=mapper;
         _permissionService=permissionService;
     }
-    public async Task<UserDto> Handle(CreateUserCommand request,CancelllationToken cancelllationToken)
+    public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
 
     {
         var hasPermission = await _permissionService
@@ -51,7 +51,7 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , User
          var id = await _Repo.CreateAsync(user);
          user.Id = id;
         // 4️⃣ Mapper Entity → DTO
-         return _mapper.Map<UserDto>(user);
+         return user.Id;
        
 
     }

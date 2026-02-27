@@ -1,6 +1,6 @@
 using System;
 using MediatR;
-using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.user;
 using visitorclean.Application.Feature.users.Queries.GetByiduser;
 using visitorclean.Application.Feature.users.Interface;
 

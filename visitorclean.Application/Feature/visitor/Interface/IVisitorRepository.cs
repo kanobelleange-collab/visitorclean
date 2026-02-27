@@ -1,4 +1,5 @@
 using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.user;
 using visitorclean.Application;
 using System;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ public interface IVisitorRepository
 {
     Task<int>AddAsync(Visitor visitor);
     Task<IEnumerable<Visitor>>GetAllAsync();
-    Task<bool> DeleteAsync(int id );
+    Task<bool> DeleteAsync(int id, int UserId);
     Task <Visitor>Update(Visitor visitor);
     Task <Visitor?>GetByIdAsync(int id);
 

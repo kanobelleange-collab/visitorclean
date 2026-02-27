@@ -30,6 +30,7 @@ public class RoleController : ControllerBase
         _mapper=mapper;
 
     }
+    [HttpGet("by-name/{name}")]
     public async Task<IActionResult> GetByNameAsync(string nom)
     {
         var role=_mediator.Send( new GetByNameQuery(nom) );

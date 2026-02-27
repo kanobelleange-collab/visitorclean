@@ -51,11 +51,11 @@ public class VisitorController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult>DeleteAsync( int id,int UserId)
+    public async Task<IActionResult>DeleteAsync( int id, int UserId)
     {
         var userId = int.Parse(User.FindFirst("id")?.Value);
         
-    await _mediator.Send(new DeleteVisitorCommand(id ,UserId));
+    await _mediator.Send(new DeleteVisitorCommand(id, UserId));
     return NoContent();
     }
 

@@ -7,7 +7,7 @@ using visitorclean.Application.Feature.users.Dto;
 
 namespace visitorclean.Application.Feature.users.Commands.createuser;
 
-public record CreateUserCommand: IRequest<UserDto>
+public record CreateUserCommand: IRequest<int>
 {
    
     public required string Username {get;set;}

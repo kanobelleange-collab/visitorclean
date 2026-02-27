@@ -1,4 +1,4 @@
-using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.role;
 using visitorclean.Application.Feature.role.Interface;
 using Dapper;
 using System.Data;

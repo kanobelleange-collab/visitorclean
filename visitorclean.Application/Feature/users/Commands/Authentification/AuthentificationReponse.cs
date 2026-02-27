@@ -1,3 +1,3 @@
 using System;
-using visitorclean.Domain.Entities;
-public record AuthenticationResponse(User user, string Token);
+using visitorclean.Domain.Entities.user;
+public record AuthenticationResponse(Users user, string Token);

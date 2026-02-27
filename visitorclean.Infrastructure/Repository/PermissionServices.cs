@@ -5,11 +5,12 @@ using MediatR;
 using visitorclean.Application.Feature.Permission.Interface;
 
 
-namespace visitorclean.Application.Service.PermissionService;
+namespace visitorclean.Infrastructure.Repository;
 
 public class PermissionService : IPermissionService
 {
     private readonly IPermissionRepository _permissionRepository;
+    
 
     public PermissionService(IPermissionRepository permissionRepository)
     {

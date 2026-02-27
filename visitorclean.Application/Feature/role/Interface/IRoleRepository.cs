@@ -1,6 +1,6 @@
 using System;
 using visitorclean.Application.Feature.role.Dto;
-using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.role;
 
 
 namespace visitorclean.Application.Feature.role.Interface;

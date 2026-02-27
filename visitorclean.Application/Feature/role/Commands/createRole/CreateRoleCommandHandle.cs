@@ -2,7 +2,7 @@ using MediatR;
 using AutoMapper;
 using visitorclean.Application.Feature.role.Dto;
 using visitorclean.Application.Feature.role.Interface;
-using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.role;
 using visitorclean.Application.Service.Interface;
 using visitorclean.Application.Common;
 

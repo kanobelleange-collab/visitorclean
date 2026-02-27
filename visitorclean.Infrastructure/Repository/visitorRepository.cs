@@ -1,8 +1,10 @@
 using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.user;
 using visitorclean.Application.Feature.visitor.Interface;
 using Dapper;
 using System.Data;
 using System.ComponentModel.Design;
+using visitorclean.Application.Feature.visitor.Commands.deletevisitor;
 using Microsoft.VisualBasic;
 using visitorclean.Infrastructure.Dbcontext;
 using visitorclean.Application.Service;
@@ -35,11 +37,11 @@ public class VisitorRepository:IVisitorRepository{
         return id;
 
     }
-    public async Task<bool> DeleteAsync(int id)
+    public async Task<bool> DeleteAsync(int id, int userId)
     {
         using  var Connection = _db.CreateConnection();
         const string sql= "DELETE FROM[Visitor] WHERE [Id]=@Id";
-        await Connection.ExecuteAsync(sql,new{Id=id});
+        await Connection.ExecuteAsync(sql,new{Id=id, UserId=userId});
         return true;
     }
 

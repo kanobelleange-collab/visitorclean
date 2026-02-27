@@ -8,7 +8,7 @@ namespace visitorclean.Application.Feature.visitor.Commands.deletevisitor;
 public record DeleteVisitorCommand: IRequest<bool>
 {
     public int Id{get;set;}
-    public required int UserId{get;set;}
+    public int UserId{get;set;}
 
     public DeleteVisitorCommand(int id,int userId)
     {

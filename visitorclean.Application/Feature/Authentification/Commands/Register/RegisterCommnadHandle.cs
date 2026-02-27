@@ -1,6 +1,6 @@
 using MediatR;
 using visitorclean.Application.Feature.Authentification.Interface;
-using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.user;
 using System.Security.Cryptography;
 using System.Text;
 using visitorclean.Application.Feature.users.Interface;

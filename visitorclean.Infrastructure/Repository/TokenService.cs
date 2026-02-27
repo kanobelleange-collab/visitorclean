@@ -1,11 +1,10 @@
 using visitorclean.Application.Feature.Authentification.Interface;
-using visitorclean.Domain.Entities;
+using visitorclean.Domain.Entities.user;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using visitorclean.Application.Feature.Authentification.Interface;
 
 namespace visitorclean.Infrastructure.Repository;
 

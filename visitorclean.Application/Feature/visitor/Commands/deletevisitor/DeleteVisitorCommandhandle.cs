@@ -29,7 +29,7 @@ public class DeleteVisitorCommandHandler:IRequestHandler<DeleteVisitorCommand , 
             throw new UnauthorizedAccessException();
     
     
-        await _repo.DeleteAsync(request.Id);
+        await _repo.DeleteAsync(request.Id, request.UserId);
         return true;
     }
 }
