@@ -1,7 +1,5 @@
 using System;
 
-
-
 namespace visitorclean.Domain.Entities;
 
 public class Permissions

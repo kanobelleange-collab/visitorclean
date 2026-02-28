@@ -21,9 +21,10 @@ using visitorclean.Application.Feature.visit.Commands.createvisit;
 using visitorclean.Application.Feauture.visit.Commands.createvisit;
 using visitorclean.Application.Feature.visit.Commands.updatevisit;
 using visitorclean.Application.Feature.visit.MappingVisit;
-using visitorclean.Application.Feature.role.Commands.createRole;
+using visitorclean.Infrastructure.AuthService;
+using Microsoft.Extensions.Configuration;
 using visitorclean.Application.Feature.users.Commands.updateuser;
-using visitorclean.Application.Feature.users.Commands.createuser;
+using visitorclean.Application.Feature.users.Interface.IJwtTokenGenerator;
 using visitorclean.Application.Service.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -40,6 +41,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// 1. Récupération de la clé depuis builder.Configuration
 var jwtKey = builder.Configuration["Jwt:Key"];
 
 if (string.IsNullOrEmpty(jwtKey))
@@ -47,24 +49,26 @@ if (string.IsNullOrEmpty(jwtKey))
     throw new Exception("Jwt:Key est null ou vide dans appsettings.json");
 }
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+builder.Services.AddAuthentication(options => {
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
 
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(jwtKey)
-            )
-        };
-    });
-    
+        // On utilise builder.Configuration pour être raccord avec le générateur
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+    };
+});
+
 builder.Services.AddAuthorization();
 
 // AutoMapper
@@ -105,6 +109,7 @@ builder.Services.AddControllers()
         }
     });
 });
+// Assure-toi d'injecter IConfiguration dans le constructeur de ton service
 
 
 // MediatR
@@ -145,6 +150,7 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IPermissionService, PermissionService>();
+builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
 // CORS
 builder.Services.AddCors(o => o.AddDefaultPolicy(p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));

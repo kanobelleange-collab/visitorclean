@@ -1,5 +1,6 @@
 using visitorclean.Domain.Entities.user;
 using visitorclean.Application.Feature.users.Interface;
+using visitorclean.Application.Feature.users.Dto;
 using Dapper;
 using System.Data;
 using System.ComponentModel.Design;
@@ -24,8 +25,8 @@ public class UserRepository : IUserRepository
     { 
          using  var Connection = _db.CreateConnection();
         var sql = @"
-            INSERT INTO Users (Username,Email,PasswordHash,RoleId,IsDeleted)
-            VALUES (@Username,@Email,@PasswordHash,@RoleId,@IsDeleted);
+            INSERT INTO Users (Username,Email,PasswordHash,RoleId)
+            VALUES (@Username,@Email,@PasswordHash,@RoleId);
             SELECT CAST(SCOPE_IDENTITY() as int);";
 
         return await Connection.ExecuteScalarAsync<int>(sql, user);
@@ -35,12 +36,12 @@ public class UserRepository : IUserRepository
          using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Users WHERE Email = @Email";
 
-        return await Connection.QueryFirstOrDefaultAsync<Users>(
+        return await Connection.QueryFirstOrDefaultAsync<Users?>(
             sql,
             new { Email = email });
     }
 
-    public async Task <Users>UpdateAsync(Users user)
+    public async Task <UserDto>UpdateAsync(Users user)
     {
          using  var Connection = _db.CreateConnection();
         var sql = @"
@@ -50,8 +51,7 @@ public class UserRepository : IUserRepository
                 RoleId = @RoleId
             WHERE Id = @Id";
 
-        await Connection.ExecuteAsync(sql, user);
-        return user;
+        return await Connection.QuerySingleAsync<UserDto>(sql, user);
     }
 
     public async Task<bool> DeleteAsync(int id)
@@ -63,18 +63,18 @@ public class UserRepository : IUserRepository
         return rows>0;
     }
 
-    public async Task<Users?> GetByIdAsync(int id)
+    public async Task<UserDto?> GetByIdAsync(int id)
     {
          using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Users WHERE Id = @Id";
-        return await Connection.QueryFirstOrDefaultAsync<Users>(sql, new { Id = id });
+        return await Connection.QueryFirstOrDefaultAsync<UserDto>(sql, new { Id = id });
     }
 
-    public async Task<List<Users>> GetAllAsync()
+    public async Task<List<UserDto>> GetAllAsync()
     {
          using  var Connection = _db.CreateConnection();
         var sql = "SELECT * FROM Users WHERE IsDeleted = 0";
-        var result= await Connection.QueryAsync<Users>(sql);
+        var result= await Connection.QueryAsync<UserDto>(sql);
         return result.ToList();
     }
 }

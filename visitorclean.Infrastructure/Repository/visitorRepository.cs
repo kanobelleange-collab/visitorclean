@@ -29,10 +29,9 @@ public class VisitorRepository:IVisitorRepository{
     {  
         using  var Connection = _db.CreateConnection();
       const string sql = @"
-        INSERT INTO Visitor (Nom, Email, Passwordhash, CreatedAT)
-        OUTPUT INSERTED.Id
-        VALUES (@Nom, @Email, @Passwordhash, @CreatedAT);
-    ";
+        INSERT INTO [Visitor] (Nom, Email, Passwordhash, CreatedAT, RoleId)
+        VALUES (@Nom, @Email, @Passwordhash, @CreatedAT, RoleId);
+        SELECT CAST(SCOPE_IDENTITY() as int);";
         var id= await Connection.ExecuteScalarAsync<int>(sql,visitor);
         return id;
 

@@ -31,7 +31,7 @@ public class PermissionRepository : IPermissionRepository
     {
           using  var Connection = _db.CreateConnection();
         var sql = @"
-            SELECT p.Name
+            SELECT p.Nom
             FROM Users u
             INNER JOIN RolePermissions rp ON u.RoleId = rp.RoleId
             INNER JOIN Permissions p ON rp.PermissionId = p.Id

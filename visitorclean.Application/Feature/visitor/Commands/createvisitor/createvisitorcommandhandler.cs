@@ -30,18 +30,19 @@ namespace visitorclean.Application.Feature.visitor.Commands.createvisitor;
         }
     public async Task <VisitorDto>Handle(CreateVisitorCommand request ,CancellationToken cancellationToken)
     {
-        var hasPermission = await _permissionService
-            .HasPermission(request.UserId, AppPermission.CreateVisitor);
+       var userId = request.userId;
+
+var hasPermission = await _permissionService.HasPermission(userId, "Visitor.Create");
 
         if (!hasPermission)
             throw new UnauthorizedAccessException();
     
        
             // Hasher le mot de passe
-            var hashedPassword = _Service.HashPassword(request.password);
+            var hashedPassword = _Service.HashPassword(request.Passwordhash);
 
             // Créer le visiteur
-            var visitor = new Visitor(request.nom, request.email, request.password, request.createdAT);
+            var visitor = new Visitor(request.Nom, request.Email, request.Passwordhash, request.CreatedAT);
 
             // Ajouter en base
              await _repo.AddAsync(visitor);

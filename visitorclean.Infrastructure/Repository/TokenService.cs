@@ -38,11 +38,12 @@ public class TokenService : ITokenService
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
         var token = new JwtSecurityToken(
-            issuer: _configuration["Jwt:Issuer"],
-            audience: _configuration["Jwt:Audience"],
+            issuer: _configuration["visitorclean"],
+            audience: _configuration["visitorcleanUsers"],
             claims: claims,
             expires: DateTime.UtcNow.AddHours(2),
             signingCredentials: creds
+    
         );
 
         return new JwtSecurityTokenHandler().WriteToken(token);

@@ -14,13 +14,13 @@ public class VisitorMapping : Profile
 {
     public VisitorMapping()
     {
-        //Entities en dto
-        CreateMap<Visitor ,VisitorDto>();
-        //Dto en command
-        CreateMap<CreateVisitorDto ,CreateVisitorCommand>();
-        CreateMap<UpdateVisitorDto ,UpdateVisitorCommand>();
-        
 
+         CreateMap<Visitor ,VisitorDto>();
+         CreateMap<CreateVisitorCommand, Visitor>();
+         CreateMap<CreateVisitorCommand, VisitorDto>();
+         CreateMap<UpdateVisitorCommand, Visitor>();
+         CreateMap<UpdateVisitorCommand, VisitorDto>();
+         CreateMap<CreateVisitorDto, CreateVisitorCommand>();
 
     }
     

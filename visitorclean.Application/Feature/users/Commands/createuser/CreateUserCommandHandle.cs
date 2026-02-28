@@ -29,11 +29,11 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand , int>
     public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
 
     {
-        var hasPermission = await _permissionService
-            .HasPermission(request.UserId, AppPermission.CreateUser);
+        // var hasPermission = await _permissionService
+            // .HasPermission(request.UserId, AppPermission.CreateUser);
 
-        if (!hasPermission)
-            throw new UnauthorizedAccessException();
+        // if (!hasPermission)
+            // throw new UnauthorizedAccessException();
     
 
    

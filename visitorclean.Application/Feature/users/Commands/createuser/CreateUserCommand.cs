@@ -14,7 +14,6 @@ public record CreateUserCommand: IRequest<int>
      public  required string Email{get;set;}
     public required  string PasswordHash{get; set;}
     public  required  int RoleId{get;set;}
-    public required int UserId{get;set;}
 
 
 
